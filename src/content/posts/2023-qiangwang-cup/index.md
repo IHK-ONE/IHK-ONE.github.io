@@ -75,7 +75,7 @@ RC4 加密 PNG 头 > 0e 3c b4 2f
 ```
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1702806112037-36fd58db-8796-4449-82fc-2d8ab14e1ac8.png)
 
 ```plain
 flag{It's_So_Hard_To_Find_A_Picture}

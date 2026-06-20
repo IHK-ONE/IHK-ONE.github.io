@@ -26,7 +26,7 @@ FAAqDPjpgKJiB6m64oRvUfta9yJsBv
 解压后在文章中找到
 
 <!-- 这是一张图片，ocr 内容为：ISCTF{WATERMARK_IS_USED_2_P IGITAL*ASSETS}是 2_PROTECT%DI IS_ -->
-
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1733220587489-3bb4e83f-07f4-4819-bc4e-11324b35076e.png)
 
 ```plain
 ISCTF{Watermark_is_used_2_protect%digital*assets}
@@ -49,7 +49,7 @@ base_misc.zip 爆破 key 040714
 对 base64 解码的图片进行修复宽高
 
 <!-- 这是一张图片，ocr 内容为：JJJ-I 1:CICL -->
-
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1733223923617-3fae8dcd-6f77-499e-aaec-99145506b9ab.png)
 
 盲文解密后拿到 <font style="color:rgb(77, 77, 77);">JFJUGVCGPNBTA3LFL4YG4X3GOIZTK2DNGNXH2</font>
 
@@ -81,12 +81,12 @@ ISCTF{湖北省_武汉市_江汉区_鸣笛1988商业街_恋爱绮谭}
 对 wav 进行 SSTV 拿到
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1733224904482-f2cfab1d-dd48-49b2-9c08-de3c80552125.png)
 
 对 DES 进行 解密
 
 <!-- 这是一张图片，ocr 内容为：INPUT RECIPE T4QIQPXAFAKZXDOH6JI+VHH8J1SHJCZ+7YCVWPSEBHCXP5005V0GHA-1 OI FROM BASE64 ALPHABET A-ZA-ZO-9+/ REMOVE NON-ALPHABET CHARS STRICT MODE DES DECRYPT KEY UTF8 YANHUOLG IV HEX 000000000000000 OUTPUT OUTPUT MODE INPUT ISCTF{YOU_@R3_1OOKING_@_ST@RRY_SKY!} CBC RAW RAW -->
-
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1733225057186-66aeffac-68a7-4587-a93d-b38e4112d061.png)
 
 ```plain
 ISCTF{Y0u_@r3_1ooking_@_st@rry_sky!}

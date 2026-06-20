@@ -12,7 +12,7 @@ tags: ['ESP32', 'IoT', '嵌入式', '学习笔记']
 ---
 
 <!-- 这是一张图片，ocr 内容为：3U3 GNDD15 D2 D4 RX2 TX2 05 D18D19 D21RXOTXOD22 D23 杭州市市保证有限公司 PIN15 PIN1 EN GPI023 RESET VPSTMOST UINGND D13 012014 D27 D26D26D25D33D32 D35 D34 UN UP E GPI022 GPL036 PIN14 PIN1 ADCO TXO GPI01 PIN13 PIN1 GPI039 ADC3 I)ESP-WROOM-32 PIN12 GPI034 GPL03 PIN1 ADC6 RXO GPI035 GPI021 PIN11 PIN1 ADC7 211-161007 PIN1 PIN10 TOUCH9 GPI032 GPI019 FCC ID:2AC7Z-ESPWR00M32 VSPIMISO ADC4 GPI018 PIN9 PIN9 VSPI SCK GPIO33 ADC5 TOUCH8 国际国际家家常学校 GPL025 VSPI SS GP105 PIN8 PIN8 ADC18 GPI017 GPI026 PIN7 PIN7 ADC19 PIN6 GPI027 GPI016 PIN6 ADC17 TOUCH7 GPI014 PIN5 PIN5 TOUCHO ADC10 ADC16 GPI04 TOUCH6 GPI012 GPI02 PIN4 PIN4 ADC12 TOUCH2 ADC15 TOUCH5 GPI013 GPI015 ADC13 PIN3 TOUCH3 PIN3 TOUCH4 ADC14 PIN2 GND GND PIN2 VDD 3V3 VIN PIN1 PIN1 -->
-
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1705824061150-f87bd3ea-38be-40b8-9f2e-cc3debe086f4.png)
 
 [esp32_Schematic Prints.pdf](https://www.yuque.com/attachments/yuque/0/2024/pdf/35229002/1705824065721-d958d6d0-20f8-433a-a1a0-75ecba428b1e.pdf)
 
@@ -97,7 +97,7 @@ delta = time.ticks_diff(time.ticks_ms(), start) # compute time difference
 
 ## 舵机 （PWM）
 <!-- 这是一张图片，ocr 内容为：20MS 0 最小脉冲 脉冲宽度1MS 90 中间位置 脉冲宽度 1.5MS 180 最大脉冲 :脉冲宽度 2MS -->
-
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1707373183032-94426b38-fd15-4275-b4b5-0ce4192f25f1.png)
 
 ```plain
 计算公式：
@@ -259,34 +259,34 @@ I2C原理：
 1.SDA从高电频到低电频，之后SCL从高电频到低电频率，向从机发动启动条件
 
 <!-- 这是一张图片，ocr 内容为：起始信号 SCL(时钟) SDA(数据) 也就是下降沿 -->
-
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1706890130006-bdc66d54-f36f-4f7d-99d3-ee05586a9397.png)
 
 2.发送从设备地址
 
 <!-- 这是一张图片，ocr 内容为：O 0 0 SCL(时钟) SDA(数据) -->
-
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1706890155259-6b929b51-438e-42c3-843d-6270a9aca7ed.png)
 
 3.接收应答，如果地址匹配，SDA拉低一个表示返回一个ACK（0），如果不匹配拉高返回一个NACK（1）
 
 <!-- 这是一张图片，ocr 内容为：A6 B5B4 B7 A4 A3 A1 B6 A2 AO 0 S A5 读/写位 起始位 应答信号 -->
-
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1706890182757-2db70a55-60fb-478a-91d2-ff2459b2a3d6.png)
 
 4.收发数据
 
 <!-- 这是一张图片，ocr 内容为：O:收到 0 0 0 0 S 1 读/写位 起始位 应答信号 它会回复0 -->
-<!-- 这是一张图片，ocr 内容为：寄存器地址(8位) 0 0 0 0 O 读/写位应答信号 应答信 -->
-
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1706890201257-4bff5a94-f14e-4141-834c-1d0c5ad98a64.png)<!-- 这是一张图片，ocr 内容为：寄存器地址(8位) 0 0 0 0 O 读/写位应答信号 应答信 -->
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1706890250812-6dde9a89-c861-44e8-9716-fadb161a367c.png)
 
 5.接收应答，返回一个ACK（0），表示接收到信号<!-- 这是一张图片，ocr 内容为：器地址(8位) 0 P 停止位 应答信号 -->
-
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1706890269094-f7e6801c-1972-4089-9d00-d7fb8ec9c70c.png)
 
 6.停止通信，SCL和SDA切换高电频，停止接收信号<!-- 这是一张图片，ocr 内容为：(8位) 字器地址 0 0 停止位 接下来的8位是给这个存储器的寄存器要写入的数据 -->
-
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1706890280390-f4761028-c5e6-496d-a982-9d1c8f3deeea.png)
 
 总结
 
 <!-- 这是一张图片，ocr 内容为：起始位 逻辑1 +关注 SCL(时钟) SCL(时钟) 读写数据 SDA(数据) (数据) SDA 读/写数据 0:代表写数据 当时钟线为高时,数据始终为高 当时钟线为高时,数据线由高变低 1:代表读数据 停止位 逻辑0 应答信号 SCL(时钟) SCL(时钟) 应答信号 0:数据被正确接收 SDA(数据) $字幕样式测试 1:从机忙; 当时钟线为高时,数据线由低变高 当时钟线为高时,数据始终为低 接收错误; 主机读取完成 -->
-
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1706890022309-f96d383d-a9a4-4cf0-b16b-1f2b9014f283.png)
 
 
 
@@ -491,7 +491,7 @@ oled.show()
 协议原理类似I2C，但是SPI通讯选择从机不是通过I2C的方法在sda发送信息时候的选择，而是通过ss通电选择从机
 
 <!-- 这是一张图片，ocr 内容为：从机 主机 SCK SCK MOSI MOSI MI SO MISO NSS NSS 主机发送倒从机 空闲 空闲 从机发送倒主机 SCK MOSI 主机输出 从机输入 110010100253 MISO 主机输入 从机输出 0 0X46 0110001010 -->
-
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1707984929392-4c41baba-8a0c-465a-888a-3d47c9c86e2a.png)
 
 ```plain
 MISO：Master input slave output 主机输入，从机输出（数据来自从机）；
@@ -550,7 +550,7 @@ temp,humd = sht3x.read_tmp_humd()
 
 ## 步进电机
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1706871206040-71a9e68e-7bf8-463e-9eae-f1831eb0341e.png)
 
 步进电机原理
 
@@ -624,7 +624,7 @@ while True:
 电路图
 
 <!-- 这是一张图片，ocr 内容为：1 2 3 5 6 B 41 7 8 6 C D # 商行 行 列 列 -->
-
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1706869204218-90b1f47a-777f-4f43-8d4f-87598664d47b.png)
 
 ```python
 from machine import Pin

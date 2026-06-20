@@ -8,7 +8,7 @@ tags: ['SRC', '应急响应', '安全运维', '知识总结']
 
 ## 漏洞研判溯源 && 响应策略
 <!-- 这是一张图片，ocr 内容为：弱口令 扫描后门 代码审计 防守 部署WAF 流量监控 -->
-
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1713446146544-33d0acdb-be46-41cc-827c-551231fbf175.png)
 
 ```plain
 防御：
@@ -86,7 +86,7 @@ C:\Windows\my.ini、C:\Windows\mysql\my.ini
 ```
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2025/webp/35229002/1743604016839-7a16be87-72e6-4ece-9846-a4e1a955853d.webp)
 
 ```plain
 1.status 查看当前数据库状态
@@ -846,28 +846,28 @@ make install
 systeminfo
 
 <!-- 这是一张图片，ocr 内容为：WINDOWS POWERSHELL COPYRIGHT (C) MICROSOFT CORPORATION. ALL RIGHTS RESERVED. PS C:\USERS\USER> SYSTEMINFO RED-WIN-ENUM HOST NAME: MICROSOFT WINDOWS SERVER 2019 DATACENTER OS NAME: 10.0.17763 N/A BUILD 17763 OS VERSION: OS MANUFACTURER: MICROSOFT CORPORATION OS CONFIGURATION: STANDALONE SERVER MULTIPROCESSOR FREE OS BUILD TYPE: EC2 REGISTERED OWNER: ORGANIZATION: AMAZON.COM REGISTERED PRODUCT ID: 00430-00000-00000-AA155 3/17/2021,  2:59:06 PM ORIGINAL INSTALL DATE: 5/12/2025,3:21:28 PM SYSTEM BOOT TIME: SYSTEM MANUFACTURER: AMAZON EC2 T3A.SMALL SYSTEM MODEL: X64-BASED PC SYSTEM TYPE: 1 PROCESSOR(S) INSTALLED. PROCESSOR(S): ~2200 MHZ [01]: AMD64 FAMILY 23 MODEL 1 STEPPING 2 AUTHENTICAMD BIOS VERSION: AMAZON EC2  1.0,10/16/2017 C:\WINDOWS DIRECTORY: WINDOWS SYSTEM DIRECTORY: C:\WINDOWS\SYSTEM32 \DEVICE\HARDDISKVOLUME1 BOOT DEVICE: EN-US;ENGLISH (UNITED STATES) SYSTEM LOCALE: EN-US;ENGLISH (UNITED STATES) INPUT LOCALE: (UTC) COORDINATED UNIVERSAL TIME TIME ZONE: 2,016 MB TOTAL PHYSICAL MEMORY: AVAILABLE PHYSICAL MEMORY:669 MB VIRTUAL MEMORY:MAX SIZE: 2,400  MB VIRTUAL MEMORY:AVAILABLE: 1,035 MB VIRTUAL MEMORY:IN USE: 1,365 MB PAGE FILE LOCATION(S): C:\PAGEFILE.SYS WORKGROUP DOMAIN: LARED-WIN-ENUM LOGON SERVER: 30 HOTFIX(S) INSTALLED. HOTFIX(S): [01]:KB5015731 [02]:KB4470502 [03]:KB4470788 [04]:KB4480056 [05]:KB4486153 [06]:KB4493510 -->
-
+![](https://cdn.nlark.com/yuque/0/2025/png/35229002/1747063614081-8faee05f-5d64-4d9f-835a-ade70755f009.png)
 
 ## windows 服务
 1. 使用 net start 查看系统服务（net 命令是 net view，显示 windows 域信息）
 
 <!-- 这是一张图片，ocr 内容为：PS C:\USERS\USER> NET START THESE WINDOWS SERVICES ARE STARTED: AMAZON SSM AGENT APP READINESS APPLICATION HOST HELPER SERVICE APPLICATION INFORMATION APPX DEPLOYMENT SERVICE (APPXSVC) BACKGROUND TASKS INFRASTRUCTURE SERVICE BASE FILTERING ENGINE CERTIFICATE PROPAGATION CLIENT LICENSE SERVICE (CLIPSVC) CNG KEY ISOLATION COM+EVENT SYSTEM COMPUTER BROWSER CONNECTED DEVICES PLATFORM SERVICE CONNECTED DEVICES PLATFORM USER SERVICE_71D33 COREMESSAGING CRYPTOGRAPHIC SERVICES DATA SHARING SERVICE DCOM SERVER PROCESS LAUNCHER DELIVERY OPTIMIZATION DEVICE SETUP MANAGER DHCP CLIENT DIAGNOSTIC POLICY SERVICE DIAGNOSTIC SYSTEM HOST DISTRIBUTED LINK TRACKING CLIENT DISTRIBUTED TRANSACTION COORDINATOR DNS CLIENT DNSSERVER FUNCTION DISCOVERY PROVIDER HOST FUNCTION DISCOVERY RESOURCE PUBLICATION GROUP POLICY CLIENT IP HELPER -->
-
+![](https://cdn.nlark.com/yuque/0/2025/png/35229002/1747064035036-e1913c0e-c4e7-43c2-aee2-5b3c066bf504.png)
 
 2. net user 查看用户信息
 
 <!-- 这是一张图片，ocr 内容为：PS C:\USERS\USER> NET USER RED-WIN-ENUM USER ACCOUNTS FOR ADMINISTRATOR DEFAULTACCOUNT GUEST JANE MICHAEL PETER STRATEGOS RANDA SSHD WDAGUTILITYACCOUNT USER THE COMMAND COMPLETED SUCCESSFULLY. -->
-
+![](https://cdn.nlark.com/yuque/0/2025/png/35229002/1747064303914-9ebb1516-3b2e-4ebd-95cb-46426230c3bf.png)
 
 3. net localgroup administrators 查看管理组用户
 
 <!-- 这是一张图片，ocr 内容为：PS C:\USERS\USER> NET LOCALGROUP A ROUP ADMINISTRATORS ALIAS NAME ADMINISTRATORS CTED ACCESS TO THE COMPUTER/DOMAIN ADMINISTRATORS HAVE COMPLETE AND UNRESTRICTED COMMENT MEMBERS ADMINISTRATOR PETER STRATEGOS USER THE COMMAND COMPLETED SUCCESSFULLY. -->
-
+![](https://cdn.nlark.com/yuque/0/2025/png/35229002/1747064374744-bb1ed385-b60e-492d-ba68-509a0f8ee30a.png)
 
 4. net share 查看共享文件
 
 <!-- 这是一张图片，ocr 内容为：PS C:\USERS\USER> NET SHARE SHARE NAME RESOURCE REMARK C:1 C$ DEFAULT SHARE IPC$ REMOTE IPC C:\WINDOWS ADMIN$ REMOTE ADMIN INTERNAL DOCUMENTS C:\INTERNAL FILES INTERNAL ENJOY SMB SHARES C:\USERS\USER\PRIVATE THM{829738] C:\USERS USERS THE COMMAND COMPLETED SUCCESSFULLY. -->
-
+![](https://cdn.nlark.com/yuque/0/2025/png/35229002/1747065302566-72f3519b-4ddd-478a-908f-b308ca9288f9.png)
 
 ## 个人信息
 ```plain
@@ -924,30 +924,30 @@ Active Connections
 <font style="color:rgb(51, 51, 51);">https-beacon通信中，cs默认使用空证书建立加密通道，流量中可以看见这一过程。</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694520633454-1040500b-1465-424b-9269-105eeace5567.png)
 
 <font style="color:rgb(51, 51, 51);">同时在 https 协议的 Client Hello 和 Server Hello 阶段，都包含了 JA3S 值传输过程过程中会有 ja3，这个值在系统上是固定的，win10是一种的 但win11是另一种 他们取决于操作系统</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694520677063-ff71aac6-455c-4f12-9eb2-74f101ce82f9.png)
 
 <font style="color:rgb(51, 51, 51);">http-beacon通信中，默认使用get方法向/dpixel、/__utm.gif、/pixel.gif等地址发起请求</font>
 
 <font style="color:rgb(51, 51, 51);">同时get读文件时cookie是一串base64的值，这是cs流量的元数据（后面解密会用）</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694520750462-468f9bb5-6717-4315-92d7-1ceef38d876a.png)
 
 ### <font style="color:rgb(119, 119, 119);">b.shell内容</font>
 <font style="color:rgb(51, 51, 51);">POST /submit.php?id=xxxxx</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694520829874-1ff58831-2ba6-4962-8c24-fd2b13e8163c.png)
 
 <font style="color:rgb(51, 51, 51);">其中post一串0000的data为cs发送流量的数据 （解密时需要转成base64）</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694520888930-2aaac6c0-80c7-4ee7-802e-1b006b260fa3.png)
 
 ### <font style="color:rgb(119, 119, 119);">c.密钥文件</font>
 <font style="color:rgb(51, 51, 51);">.cobalstrike.beacon_keys 的java反序列化字节流 .ser文件</font>
@@ -958,19 +958,19 @@ Active Connections
 <font style="color:rgb(51, 51, 51);">导入java反序列化字节流文件入 parse_beacon_keys.py 得到rsa公私钥，私钥为主</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694521163162-38223a14-0475-4cc0-a433-a9511968c894.png)
 
 [https://github.com/WBGlIl/CS_Decrypt](https://github.com/WBGlIl/CS_Decrypt)
 
 <font style="color:rgb(51, 51, 51);">将私钥和 cookie 值（cs元数据）导入 Beacon_metadata_RSA_Decrypt.py 解密出AES key 和 HMAC key</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694521349714-14622b34-f6d3-422e-9c79-9202f99b55f3.png)
 
 <font style="color:rgb(51, 51, 51);">导入 AES key 和 HMAC key 和发送数据的base64格式入 Beacon_Task_return_AES_Decrypt.py 解密发送的数据</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694521553479-dad76f5a-5fe0-419a-9510-f5c86a94a4ee.png)
 
 ## <font style="color:rgb(51, 51, 51);">2.冰蝎流量</font>
 ### <font style="color:rgb(119, 119, 119);">a.特征</font>
@@ -1059,7 +1059,7 @@ class C{public function __invoke($p) {eval($p."");}}
 <font style="color:rgb(51, 51, 51);">请求包和返回包（重点！iv是全0填充0000000000000000000000000000000）</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694521853846-f3188d20-8fb2-427b-bab7-00db4aa56559.png)
 
 <font style="color:rgb(51, 51, 51);">解密的结果再进行一次base64解密即可</font>
 
@@ -1093,29 +1093,29 @@ print(plaintext)
 <font style="color:rgb(51, 51, 51);">AES ECB解出 class文件</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694529981164-7513de16-9bc7-43d3-b438-027d1551957e.png)
 
 <font style="color:rgb(51, 51, 51);">使用jadx进行反编译</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694530003971-854f7a24-739e-4bab-9c9c-bc420050e30f.png)
 
 <font style="color:rgb(51, 51, 51);">再将返回值进行解密</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694530103332-86d9f805-fcbd-40a4-a4cd-49abe9866948.png)
 
 <font style="color:rgb(51, 51, 51);">将raw值进行AES解密</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694530124247-76f75039-714f-49af-bbd6-c6a578301efe.png)
 
 ## <font style="color:rgb(51, 51, 51);">4.哥斯拉流量</font>
 ### <font style="color:rgb(119, 119, 119);">a.特征</font>
 <font style="color:rgb(51, 51, 51);">命令执行的变量名/pass为webshell连接密码 </font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694522988983-54744526-cbb0-4a2f-98d5-caca66007e3b.png)
 
 ### <font style="color:rgb(119, 119, 119);">b.shell命令</font>
 ```plain
@@ -1156,14 +1156,14 @@ if (isset($_POST[$pass])){
 <font style="color:rgb(51, 51, 51);">base64解密后异或key，重要（其中key的第一位要移到最后一位）</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694523258253-bec679ba-c6c2-42e2-a507-8bd1643449b0.png)
 
 ## <font style="color:rgb(51, 51, 51);">5.哥斯拉流量（java）</font>
 ### <font style="color:rgb(119, 119, 119);">a.解密</font>
 <font style="color:rgb(51, 51, 51);">得到16进制密文后 进行 AES ECB解密，在进行Gzip</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694523845607-981f9251-8231-4d64-b538-6fb42a07bc2f.png)
 
 ## <font style="color:rgb(51, 51, 51);">6.蚁剑/菜刀流量</font>
 ### a.特征 & 密码 & 解密

@@ -759,30 +759,30 @@ tshark
 <font style="color:rgb(51, 51, 51);">https-beacon通信中，cs默认使用空证书建立加密通道，流量中可以看见这一过程。</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694520633454-1040500b-1465-424b-9269-105eeace5567.png)
 
 <font style="color:rgb(51, 51, 51);">同时在 https 协议的 Client Hello 和 Server Hello 阶段，都包含了 JA3S 值传输过程过程中会有 ja3，这个值在系统上是固定的，win10是一种的 但win11是另一种 他们取决于操作系统</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694520677063-ff71aac6-455c-4f12-9eb2-74f101ce82f9.png)
 
 <font style="color:rgb(51, 51, 51);">http-beacon通信中，默认使用get方法向/dpixel、/__utm.gif、/pixel.gif等地址发起请求</font>
 
 <font style="color:rgb(51, 51, 51);">同时get读文件时cookie是一串base64的值，这是cs流量的元数据（后面解密会用）</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694520750462-468f9bb5-6717-4315-92d7-1ceef38d876a.png)
 
 ###### <font style="color:rgb(119, 119, 119);">shell指令</font>
 <font style="color:rgb(51, 51, 51);">POST /submit.php?id=xxxxx</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694520829874-1ff58831-2ba6-4962-8c24-fd2b13e8163c.png)
 
 <font style="color:rgb(51, 51, 51);">其中post一串0000的data为cs发送流量的数据 （解密时需要转成base64）</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694520888930-2aaac6c0-80c7-4ee7-802e-1b006b260fa3.png)
 
 ###### <font style="color:rgb(119, 119, 119);">密钥文件</font>
 <font style="color:rgb(51, 51, 51);">.cobalstrike.beacon_keys 的java反序列化字节流 .ser文件</font>
@@ -793,19 +793,19 @@ tshark
 <font style="color:rgb(51, 51, 51);">导入java反序列化字节流文件入 parse_beacon_keys.py 得到rsa公私钥，私钥为主</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694521163162-38223a14-0475-4cc0-a433-a9511968c894.png)
 
 [https://github.com/WBGlIl/CS_Decrypt](https://github.com/WBGlIl/CS_Decrypt)
 
 <font style="color:rgb(51, 51, 51);">将私钥和 cookie 值（cs元数据）导入 Beacon_metadata_RSA_Decrypt.py 解密出AES key 和 HMAC key</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694521349714-14622b34-f6d3-422e-9c79-9202f99b55f3.png)
 
 <font style="color:rgb(51, 51, 51);">导入 AES key 和 HMAC key 和发送数据的base64格式入 Beacon_Task_return_AES_Decrypt.py 解密发送的数据</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694521553479-dad76f5a-5fe0-419a-9510-f5c86a94a4ee.png)
 
 ##### <font style="color:rgb(51, 51, 51);">冰蝎流量</font>
 ###### <font style="color:rgb(119, 119, 119);">特征</font>
@@ -894,7 +894,7 @@ class C{public function __invoke($p) {eval($p."");}}
 <font style="color:rgb(51, 51, 51);">请求包和返回包（重点！iv是全0填充0000000000000000000000000000000）</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694521853846-f3188d20-8fb2-427b-bab7-00db4aa56559.png)
 
 <font style="color:rgb(51, 51, 51);">解密的结果再进行一次base64解密即可</font>
 
@@ -928,29 +928,29 @@ print(plaintext)
 <font style="color:rgb(51, 51, 51);">AES ECB解出 class文件</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694529981164-7513de16-9bc7-43d3-b438-027d1551957e.png)
 
 <font style="color:rgb(51, 51, 51);">使用jadx进行反编译</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694530003971-854f7a24-739e-4bab-9c9c-bc420050e30f.png)
 
 <font style="color:rgb(51, 51, 51);">再将返回值进行解密</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694530103332-86d9f805-fcbd-40a4-a4cd-49abe9866948.png)
 
 <font style="color:rgb(51, 51, 51);">将raw值进行AES解密</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694530124247-76f75039-714f-49af-bbd6-c6a578301efe.png)
 
 ##### <font style="color:rgb(51, 51, 51);">哥斯拉流量</font>
 ###### <font style="color:rgb(119, 119, 119);">特征</font>
 <font style="color:rgb(51, 51, 51);">命令执行的变量名/pass为webshell连接密码 </font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694522988983-54744526-cbb0-4a2f-98d5-caca66007e3b.png)
 
 ###### <font style="color:rgb(119, 119, 119);">shell命令</font>
 ```plain
@@ -991,14 +991,14 @@ if (isset($_POST[$pass])){
 <font style="color:rgb(51, 51, 51);">base64解密后异或key，重要（其中key的第一位要移到最后一位）</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694523258253-bec679ba-c6c2-42e2-a507-8bd1643449b0.png)
 
 ##### <font style="color:rgb(51, 51, 51);">哥斯拉流量（java）</font>
 ###### <font style="color:rgb(119, 119, 119);">解密</font>
 <font style="color:rgb(51, 51, 51);">得到16进制密文后 进行 AES ECB解密，在进行Gzip</font>
 
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694523845607-981f9251-8231-4d64-b538-6fb42a07bc2f.png)
 
 ##### <font style="color:rgb(51, 51, 51);">蚁剑/菜刀流量</font>
 <font style="color:rgb(51, 51, 51);">如果可以直接base64解码出来，则为蚁剑/菜刀流量</font>
@@ -1865,7 +1865,7 @@ getcap -r / 2>/dev/null# getcap 所有可能的capabilites文件 -r 遍历 / 根
 ### <font style="color:rgb(51, 51, 51);">二维码类题型</font>
 #### <font style="color:rgb(51, 51, 51);">二维码组成</font>
 <!-- 这是一张图片，ocr 内容为： -->
-
+![](https://cdn.nlark.com/yuque/0/2022/png/155952/1663935696703-3736ec0f-adb1-46a8-88a2-8f2fa1999e81.png?x-oss-process=image%2Fresize%2Cw_750%2Climit_0)
 
 #### <font style="color:rgb(51, 51, 51);">修改二维码纠错等级/掩码</font>
 <font style="color:rgb(51, 51, 51);">QrazyBox离线版</font>

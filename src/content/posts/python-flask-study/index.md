@@ -259,7 +259,7 @@ if __name__ == '__main__':
 详细如图
 
 <!-- 这是一张图片，ocr 内容为：NAME"FILE"; FILENAME"L.PNG CONTENT-DISPOSITION: TO1 FORM-DATA 字典键字典FILENAME键值 CONT学鱼IYPETYBERTERG IPING 流 STREAM THDR WIE ):?>XDOOAS 7OOU`O),O):NAE`IL`OOCU`GYU-I2OOQO BHYSAAD+'IDATHDC\<?>$ GET[O]($ POST[1]);?>>>> 0000.3)A XIENDOBOBO -->
-
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732619363498-f84a663e-9ccb-42ca-909a-2e46fd656bfa.png)
 
 
 
@@ -441,7 +441,7 @@ app.run()
 ```
 
 <!-- 这是一张图片，ocr 内容为：127.0.0.1:5000 哗哩哗哩(.")2... 知识库 CTF UNAUTHORIZED ERROR!!! -->
-
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732869273968-ec542217-fb5e-4923-8865-f6f95180e587.png)
 
 然后也可以通过自定义一个 errorhandler 类进行返回页面
 
