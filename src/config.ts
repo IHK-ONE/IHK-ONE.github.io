@@ -208,7 +208,7 @@ export const POSTS_CONFIG: PostConfig = {
 }
 
 export const COMMENT_CONFIG: CommentConfig = {
-  enabled: true,
+  enabled: false,
   system: 'gitalk',
   gitalk: {
     clientID: import.meta.env.PUBLIC_GITHUB_CLIENT_ID,
