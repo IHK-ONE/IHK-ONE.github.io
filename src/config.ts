@@ -16,12 +16,12 @@ import type {
 export const SITE: Site = {
   title: "IHK-1's Blog",
   description:
-    'CTF 解题笔记、网络安全研究、技术学习记录 — IHK-1 的个人博客',
+    '黄康的个人博客 — 安全服务工程师、CTF 选手、开源工具开发者，记录 CTF Writeup、漏洞分析与安全研究。',
   website: 'https://ihk-one.github.io',
   lang: 'zh-CN',
   base: '/',
   author: 'IHK-1',
-  ogImage: '/og-image.webp',
+  ogImage: 'https://avatars.githubusercontent.com/u/164609164?v=4',
   transition: false,
   themeAnimation: true,
 }
