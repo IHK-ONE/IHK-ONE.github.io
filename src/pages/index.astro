@@ -1,0 +1,90 @@
+---
+import { SITE, SKILLSSHOWCASE_CONFIG, SOCIAL_LINKS } from '~/config.ts'
+import { GITHUB_CONFIG, POSTS_CONFIG } from '~/config.ts'
+import Layout from '~/layouts/Layout.astro'
+import SectionDivider from '~/components/base/SectionDivider.astro'
+import GithubContributions from '~/components/base/GithubContributions.tsx'
+import SocialLink from '~/components/base/SocialLink.astro'
+import List from '~/components/posts/card/List.astro'
+import SkillsShowcase from '~/components/base/SkillsShowcase.astro'
+import { getNumPosts, getPinnedPosts } from '~/lib/data'
+
+const { ENABLED, GITHUB_USERNAME, TOOLTIP_ENABLED } = GITHUB_CONFIG
+const { size, type } = POSTS_CONFIG.homePageConfig
+const { SKILLS_ENABLED, SKILLS_DATA } = SKILLSSHOWCASE_CONFIG
+
+let showPosts = []
+const pinnedPosts = await getPinnedPosts()
+const hasPinnedPosts = pinnedPosts.length > 0
+if (hasPinnedPosts) {
+  showPosts = pinnedPosts
+} else {
+  showPosts = await getNumPosts(size)
+}
+---
+
+<Layout title="Readme" description={SITE.description}>
+  <div class="relative z-[1]">
+    <div class="py-8 pb-10 px-6 sm:px-8">
+      <h1 class="flex flex-col gap-2">
+        <span class="text-4xl sm:text-5xl tracking-tight"> IHK-1 </span>
+        <span class="text-muted-foreground font-light text-xl sm:text-2xl block tracking-wide text-balance">
+          CTF Player · Security Researcher · Developer
+        </span>
+      </h1>
+      <div class="pro text-muted-foreground text-pretty">
+        <p>
+          专注于网络安全领域的 CTF 竞赛选手与安全研究员。博客记录 CTF 解题 Writeup、漏洞分析、安全研究以及各类技术学习笔记。
+        </p>
+        <p>
+          擅长方向：MISC、WEB、应急响应、渗透测试。热衷开源工具开发与知识分享。
+          关注于 <a href="https://github.com/IHK-ONE" target="_blank" rel="nofollow noreferrer">@IHK-ONE</a>
+        </p>
+      </div>
+      <div class="mt-6 flex gap-6">
+        {
+          SOCIAL_LINKS.map((item) => {
+            return <SocialLink href={item.url} icon={item.icon} aria-label={`Link of ${item.name}`} count={item.count} label="followers" />
+          })
+        }
+      </div>
+    </div>
+    {
+      ENABLED && (
+        <>
+          <SectionDivider />
+          <div class="py-8 pb-10 px-6 max-md:px-6">
+            <div class="px-2 max-md:px-0">
+              <h2 class="text-2xl sm:text-3xl">GitHub 动态</h2>
+              <p class="text-muted-foreground mb-6 mt-1">过去一年的 GitHub 贡献：</p>
+            </div>
+            <GithubContributions username={GITHUB_USERNAME} tooltipEnabled={TOOLTIP_ENABLED} client:load transition:animate="none" />
+          </div>
+        </>
+      )
+    }
+    {
+      SKILLS_ENABLED && SKILLS_DATA.length > 0 && (
+        <>
+          <SectionDivider />
+          <div class="py-8 pb-10 px-6 max-md:px-6">
+            <div class="px-2 max-md:px-0">
+              <h2 class="text-2xl sm:text-3xl tracking-tight">技能 & 工具</h2>
+              <p class="text-muted-foreground mb-6 mt-1">日常使用的技术与工具：</p>
+            </div>
+            <SkillsShowcase skillsData={SKILLS_DATA} />
+          </div>
+        </>
+      )
+    }
+    <SectionDivider />
+    <div class="py-8 pb-10 px-6 sm:px-8">
+      <h2 class="text-2xl sm:text-3xl tracking-tight">最新文章</h2>
+      <p class="text-muted-foreground mb-6 mt-1">
+        {hasPinnedPosts ? '置顶' : '最近'}
+        {showPosts.length} 篇文章
+      </p>
+      <List posts={showPosts} {type} coverLayout={POSTS_CONFIG.homePageConfig?.coverLayout} />
+    </div>
+  </div>
+</Layout>

