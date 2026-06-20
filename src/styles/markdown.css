@@ -366,12 +366,16 @@
 /* ===== 表格样式 ===== */
 .markdown {
   & table {
+    display: block;
     width: 100%;
+    max-width: 100%;
     table-layout: auto;
     text-align: left;
     font-size: 0.9375em;
     line-height: 1.7142857;
     border-collapse: collapse;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   & thead {
