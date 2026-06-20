@@ -47,7 +47,6 @@ def inverse_right(res, shift, bits=32):
         tmp = res ^ tmp >> shift
     return tmp
 
-
 # right shift with mask inverse
 def inverse_right_mask(res, shift, mask, bits=32):
     tmp = res
@@ -62,14 +61,12 @@ def inverse_left(res, shift, bits=32):
         tmp = res ^ tmp << shift
     return tmp
 
-
 # left shift with mask inverse
 def inverse_left_mask(res, shift, mask, bits=32):
     tmp = res
     for i in range(bits // shift):
         tmp = res ^ tmp << shift & mask
     return tmp
-
 
 def extract_number(y):
     y = y ^ y >> 11
@@ -135,9 +132,6 @@ print(flag)
 ## misc1
 图片尾部有个 rar
 
-<!-- 这是一张图片，ocr 内容为：010 EDITOR-C\USERS\HK\DESKTOP\THECUTESTPEOPLE.JPG 脚本() 模板(L) 调试(D) 项目(P) 工具(T) 窗口(W) 帮助(H) 文件(F) 编辑(日) 搜索(S) 视图(V) 格式(O) 帮助(H) LL MOV HEX <>\ 工作区 THECUTESTPEOPLEJPGXOUT.RAR FLAGTXT 起始页 0 1 2 3 4 5 6 7 8 9 A B C D E F 0123456789ABCDEF . 路径 文件 EADA>%+D.>V.EOS E9 C4 FO EO 3E 88 BC 2B DO 15 3E 76 07 C8 D5 A7 1:7D10H 打开的文件 DALO...>.>...OA DO C4 7C F4 0B A8 FA 08 1F 3E 00 8F AO 81 F3 EO 1:7D20H C....P\ 1:7D30H .E#>Z.L.GI..C.0 03 E8 23 3E 7A 00 7D 08 67 CF 00 0F A2 01 F3 BO FLAG.TXT .YURAR!...3'UA 1:7D40H 1A 8F FF D9 52 61 72 21 1A 01 01 00 33 92 B5 E5 C....P\ OUT.RAR 0A 01 05 06 00 05 01 01 80 80 00 82 76 E1 24 1:7D50H EE.D,VAS THECUTE...PLE.JPG C....P\ 02 03 0B FF 01 04 91 02 20 B6 DE 96 7F 80 03 00 1:7D60H ..Y..'. FP-.E.. 项目 08 66 66 61 67 2E 74 78 74 0A 03 02 02 BG 9A F7 51 .FLAG.TXT...45-Q 1:7D70H 资< 工作区 项目 模板结果-JPG.BT 检查器 名称 类型 STRUCT JPGFILE JPGFILE 01010010 二进制 M_SOI(FFD8) ENUM M_ID SOIMARKER 有符号字节 82 STRUCT APP14 APP14 无信号字节 82 STRUCT APP1 APP1[0] 图可> 变量 检查器 输出 START OF LMAGE MARKER THUMBNAIL OFFSET 0X3B0 START OF LMAGE MARKER START OF SCAN MARKER END OF FILE LMAGE START OF SCAN MARKER END OF FILE LMAGE 执行搜扳'CRUSERSHKIDOCUMENTSISWEETSCAPERO1O TEMPLATESIREPOSTTORYRARBRYRARBR 于CJUSERSIHKIDESKTOPLOUTRAR... *ERROR LINE 328:自定义属性"FORMAT"的值不被支持. 套输出 多文件中查找 查找结果 直方图 校验和 WOV 反汇编器 比较 进程 见插入 位置:97604[17D44H] 值:82 52H 大小:97,931 十六进制(H)ANSI小端 文件'C:USERS\HK\DESKTOP\THECUTESTPEOPLEJPG' 已打开. -->
-![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1726927714419-cc31cfa6-18e0-4329-a6c9-13196e785464.png)
-
 解压出来的 flag 进行 reverse 拿到一个 zip，密钥为图片属性的 16进制解码，
 
 最后直接 赛博厨子 magic 梭哈了
@@ -145,23 +139,16 @@ print(flag)
 ## re1
 异或
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2024/png/35534235/1726919211727-d921117b-5f0b-4374-a6c2-9bcd8f37277b.png?x-oss-process=image%2Fformat%2Cwebp)
-
 ## re2
 esp定律脱壳
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2024/png/35534235/1726919297062-20002ff4-4982-410d-ac79-24ca8b13ef36.png?x-oss-process=image%2Fformat%2Cwebp%2Fresize%2Cw_750%2Climit_0)  
+  
 有smc，直接动调，发现一个异或
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2024/png/35534235/1726919412664-a111e7f2-bad6-4a70-adaf-d8fc26beca15.png?x-oss-process=image%2Fformat%2Cwebp)  
+  
 第二段也是异或
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2024/png/35534235/1726919442776-25bee7e6-877d-4d66-8bfc-f1689f0f1351.png?x-oss-process=image%2Fformat%2Cwebp)  
-
+  
 
 ```plain
 enc=[0x00000066, 0x0000006B, 0x00000063, 0x00000064, 0x0000007F, 0x0000006B, 0x00000067, 0x0000006B, 0x0000007C, 0x00000056, 0x0000007A, 0x00000056, 0x0000007E, 0x00000067, 0x0000003C, 0x00000050, 0x00000064, 0x00000057, 0x0000004D, 0x00000053, 0x0000007B, 0x00000060, 0x00000064, 0x00000066]

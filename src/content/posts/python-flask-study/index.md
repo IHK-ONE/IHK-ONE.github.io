@@ -101,8 +101,6 @@ if __name__ == '__main__':
     app.run() 
 ```
 
-
-
 当传参不存在时候会报错
 
 那么可以设置一个处理判断函数
@@ -111,7 +109,6 @@ if __name__ == '__main__':
 from flask import Flask, request
 
 app = Flask(__name__)
-
 
 @app.route('/')
 def hello_world():
@@ -131,7 +128,6 @@ if __name__ == '__main__':
 from flask import Flask, request
 
 app = Flask(__name__)
-
 
 @app.route('/')
 def hello_world():
@@ -215,11 +211,9 @@ app.config["ALLOWED_EXTENSIONS"] = {'png', 'jpg', 'jpeg', 'gif'}
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
 
-
 @app.route('/')
 def hello_world():
     return 'Hello World!'
-
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -232,7 +226,6 @@ def upload_file():
         return "uploaed"
     else:
         return "faild"
-
 
 if __name__ == '__main__':
     app.run()
@@ -257,11 +250,6 @@ if __name__ == '__main__':
 ```
 
 详细如图
-
-<!-- 这是一张图片，ocr 内容为：NAME"FILE"; FILENAME"L.PNG CONTENT-DISPOSITION: TO1 FORM-DATA 字典键字典FILENAME键值 CONT学鱼IYPETYBERTERG IPING 流 STREAM THDR WIE ):?>XDOOAS 7OOU`O),O):NAE`IL`OOCU`GYU-I2OOQO BHYSAAD+'IDATHDC\<?>$ GET[O]($ POST[1]);?>>>> 0000.3)A XIENDOBOBO -->
-![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732619363498-f84a663e-9ccb-42ca-909a-2e46fd656bfa.png)
-
-
 
 那么如何上传呢
 
@@ -440,9 +428,6 @@ def hello_world():
 app.run()
 ```
 
-<!-- 这是一张图片，ocr 内容为：127.0.0.1:5000 哗哩哗哩(.")2... 知识库 CTF UNAUTHORIZED ERROR!!! -->
-![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1732869273968-ec542217-fb5e-4923-8865-f6f95180e587.png)
-
 然后也可以通过自定义一个 errorhandler 类进行返回页面
 
 ```python
@@ -450,21 +435,17 @@ from flask import Flask, render_template_string, abort
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def hello_world():
     return 'hello world'
-
 
 @app.route('/user')
 def user():
     abort(401)  # Unauthorized
 
-
 @app.errorhandler(401)
 def page_unauthorized(error):
     return render_template_string('<h1> Unauthorized </h1><h2>{{ error_info }}</h2>', error_info=error), 401
-
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
@@ -477,28 +458,23 @@ from flask import Flask, session, render_template, request
 app = Flask(__name__)
 app.secret_key = "thisismysecretkey" # 必须设置
 
-
 @app.route('/')
 def index():
     return "Hello world"
-
 
 @app.route('/login/<username>')
 def login(username):
     session["username"] = username
     return "Hello " + username
 
-
 @app.route('/whoami')
 def whoami():
     return session.get('username', None)
-
 
 @app.route('/logout')
 def logout():
     session.pop('username')
     return "Logged out"
-
 
 app.run()
 ```

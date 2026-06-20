@@ -82,9 +82,6 @@ M13c_!ps2s23
 
 修复文件头
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2024/jpeg/35229002/1733118703211-9496ce0e-34ba-4bfb-88a1-062872053fa2.jpeg)
-
 ```plain
 flag{5e093f8a-6b8c-4fa5-b9f7-0ae3b6b0da56}
 ```
@@ -128,13 +125,7 @@ for y in range(img.size[1] // size):
 out.save('out.png')
 ```
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1733116531775-d002eea7-44e2-4af8-acc8-1727e27bf6cf.png)
-
 对 LSB bin 提取
-
-<!-- 这是一张图片，ocr 内容为：I SC TFFJINGLIU IS _ SO.COOL3 -->
-![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1733116601521-65edf174-4060-46dd-a93a-775d7ebb9056.png)
 
 ```python
 ISCTF{JINGLIU_IS_SO_COOL}
@@ -166,10 +157,8 @@ data = '''1,2.75,1,1,2.5,1,1,2.25,1,1,1.75,1,1,2,1,1,3,1,1.5,3,1,2,3,1,2,2.75,1,
 11.5,3,1,12,3,1,11,3,1,12,2.25,1,12,2,1,12,1.75,1,12,1.5,1,11.5,1.5,1,11,1.5,1,11,1.75,1,11,2,1,11,2.25,1,11,2.5,1,11,2.75,1,11.5,2.25,1'''.replace(
     '\n', '').split(',')
 
-
 def cobvert(num):
     return int(float(num) / 0.25)
-
 
 out = Image.new("L", (100, 100), "white")
 
@@ -181,16 +170,10 @@ for i in range(0, len(data), 3):
 out.show()
 ```
 
-<!-- 这是一张图片，ocr 内容为：155736 -->
-![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1733122112325-e7a8349d-dfe6-46db-8e6f-655dd368fbc6.png)
-
 得到 895736 解压后二维码解码拿到 flag
 
 ## 小猫
 对 end3.png 文件末尾内容进行分离，拿到一张 jpg
-
-<!-- 这是一张图片，ocr 内容为：遇事冷静 脸小三分 1)(3.1)(4.1)(2.2)(4.1)(1)(1.2)(4.1) 8)(3.2)(1.2)(4.1)(1,1)(4,1)(3,1)(3,1) 1)(2.3)(4.1)(4.2)(4.1)(3.2)(4.1) 2)(3.2)(1.2)(3.2)(3,1)(3,2)(3,2) 1)(4.2)(4.1)(3.2)(4.1)(3.2)(4.2) 吾皇 -->
-![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1733122804168-e55d13da-da8a-4835-9246-d20481fbb737.png)
 
 替换成社会主义核心价值观密码
 
@@ -247,9 +230,6 @@ for line in lines:
 print(out)
 ```
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1700662298230-fc3bdc51-037e-4b06-998c-9cdba140f220.png)
-
 ```python
 # 已经有二维码雏形，其中上面部分必然是白色边框的
 # 统计了两行，发现两行总为 0，1，2，3，9 中的一个
@@ -271,9 +251,6 @@ for line in lines:
 
 print(out)
 ```
-
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1700662558716-38f88f13-e817-4726-8c8f-ceffb49714ed.png)
 
 ```plain
 ISCTF{99517406-0378-4ba0-a873-70f245d6ca19}
@@ -382,7 +359,6 @@ import itertools
 import binascii
 from collections import Counter
 
-
 zipf = zipfile.ZipFile('./flag.zip')
 zipf_len = len(zipf.namelist())
 word_list = range(256) # 字符集为0x00~0xff，试过可见字符，爆不出
@@ -477,14 +453,8 @@ sudo -l 查看发现有个 web.py
 
 直接进行编辑即可
 
-<!-- 这是一张图片，ocr 内容为：VIMWEB.PY CTFQ81D62C272223: CTF@81D62C272223: CAT WEB.PY IMPORT OS OS.SYSTEM('CAT /HOME/CTF/FLAG') ~$ SUDO PYTHON3 /HOME/CTF/WEB.PY CTFA81D62C272223:~$ OPNS ISCTF{3DCE9F15-7D7B-475C-88CA-3BF71AA30995] -->
-![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1733125671956-92b5eee2-a3b0-4289-a504-e1869a8ca113.png)
-
 ## DISK（×）
 对 LogFile 分析 ，将每个文件 解码拼接拿到 flag
-
-<!-- 这是一张图片，ocr 内容为：MINE V7.8.0.38310-AX1OM -DEC 02 2024 155036 MAGNET AXIOM EXAMINE V7. 文件(8/月)工具 进程帮助(&H) 亮收 日期和时间 配置文件 证据 部分结果 关键字列表" 使用方途 标签和备注 过波器 内容类型 证据(18) 列视图 使用方迹 RENAME 标签,备注和配置文件 当前.... 原始MFT 物改.... 原始...: 原始父级M..... 原始访问日期/.. 当前 原始创社日期/.. 当前文件名 所有证据 DISK.VHD 33 2023/10/2393658.079 1407374883553285 2023/10/2393658.079 2023/10/23 93658079 2023/10/23 93658 SSECUNE 精炼信息 3 详情 3 1407374803553205 2023/10/2393700.861 标识将-设备 2023/ 447 媒体 使用应该后品 1407374883553285 2023/10/23937:01394 2023/ 塑园 文件接作 1918846768.TOTT 超胎:LSN 2023/10/23 937:01910 2023/10/23 937:01.909 2023/ MAQALNXA.TOT 文档 原始文件名 811884366.BDT 2023/ 操作系统 19 原始MFT 修改日期用时间 2023/10/239:36:58.079 GOOG MWWBO91C.BXT 2023/10/2393702416 2023/ 2023/10/23 93702.416 2023/10/2393702416 2023/10/23907.02416 原始创建日期/时间 2023// 1413895007.0T 18 图 SLOGFILE分析 原始修故口照时有 2023/10/23936:58.079 2023/ 2023/10/23937:02926 原始访问日期/时间 2023/10/23 93658.079 1290230000 1.T 2023/ 原始父级 MFT 记是编号 2023/ 2023/10/23 937:03.433 AEGZFVWD.TXT 1407374883553285 原始父级 MFT 专用 2023/ 当前文件名 $SECURE 2023/10/239.37.03.947 0000 2023/10/23 936:58.079 简的MFT 带放日照/时间 NOTHING ABOUT FLAG 2023/ 当前创建目期/时间 2023/10/23 9:36-58.079 SRECYCLE.BIN 当前修改日期/时间 2023/10/23 9:36:58.079 2023/10/23 93658.079 前新访问日期/时间 当前父爱MFT记录编号 当前父级 MFT 参考号  1407374883553285 类型 SLOGFILE 分析 项目ID 证据信奥 DISK.VHD . PARTITION 1 (MICROSOFT NTFS,28 MB) ISCTF VSLOGFILE 饮气方法 已解析 已用除膜 位置 时区 UTC+000 -->
-![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1733126183882-ed7db50f-2e7b-404f-bcc3-d9fabff71d8d.png)
 
 ```plain
 ==QfnFGb
@@ -508,21 +478,11 @@ ISCTF{WELCOME_TO_MC_WORLD_IN_ISCTF}
 ## status
 SUID 提权
 
-<!-- 这是一张图片，ocr 内容为：CTF@22A5254673F5:~S FIND / -TYP -TYPE F -PERM-USS 2>/DEV/NULL /USR/LIB/OPENSSH/SSH-KEYSIGN /USR/LIB/DBUS-1.0/DBUS-DAEMON-LAUNCH-HELPER /HOME/CTF/CHECKGENSHIN  CTF@2A5254673F5:~$ -->
-![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1733127083397-f4bb3616-473f-44a4-9c05-7008710e6395.png)
-
-分析 <!-- 这是一张图片，ocr 内容为：IDA - CHECKGENSHIN C\USERS\HK\DESKTOP\CHECKGENSHIN 编辑跳转搜索视图调试器LUMINA 窗口帮助BINDIFF 文件 选项 X 中 无调试器 A 数据 指令 外部符号 常规函数 库函数 未知 LUMINA 函数 PSEUDOCODE-A 团 IDA VIEW-A 口GX FUNCTIONS 1 INT CDECL MAIN(INT ARGC, CONST CHAR **ARGV, CONST CHAR **ENVP) 函数名称 段 2 3 SETUID(O); INIT PROC INIT SUB_1020 4 SETGID(O); PLT 5 PRINTF("STATUS OF THE SSH SERVER:"); PLT SYSTEN SYSTEM("SERVICE SSH STATUS"); PRINTF P1T P1T SETGID RETURN 0; P1T 8 SETUID CXA FINALIZE PLT.GOT TEXT START DEREGISTER TM CLONES TEXT TEXT REGISTER TM_CLONES DO GLOBAL DTORS AUX TEXT FRAME_DUMMY TEXT TEXT LIBE_CSU_INIT TEXT LIBE_ESU FINI TEXT FINI TERM PROC EXTERN SYSTEM PRINTF EXTERN LIBESTART EXTERN EXTERN SETGID SETUID EXTERN _CXA_FINALIZE EXTERN 11P .GMON_START EXTERN -->
-![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1733127144550-de7f35e1-9060-45cc-ab32-eebd063660fb.png)
-
+分析 
 尝试劫持 service
-
-<!-- 这是一张图片，ocr 内容为：/TMP CTF@672457BEDCBA: CD TMP /HOME/CTF/FLAG > /TMP/FLAG' CTF@672457BEDCBA: CAT ECHO STATUS CTF@672457BEDCBA://TMPS CHMOD+X STATUS CTF@672457BEDCBA://TMP$ EXPORT PATH:/TMP:$PATH /HOME/CTF/CHECKGENSHIN CTF@672457BEDCBA://TMPS *SSHD IS RUNNING STATUS OF THE SSH SERVER:CTFE672457BEDCBA://TMPS /HOME/CTF/CHECKGENSHIN SSHD IS RUNNING STATUS OF THE SSH SERVER:CTF@672457BEDCBA://TMPS STATUS CAT: /HOME/CTF/FLAG: PERMISSION DENIED /HOME/CTF/FLAG > /TMP/FLAG' > SERVICE ECHO CAT /H CTF@672457BEDCBA://TMP$ MPS CHMOD CTF@672457BEDCBA://TMPS +X STAT FILE OR DIRECTORY CHMOD: CANNOT ACCESS STAT' SUCH ON CHMOD CTF@672457BEDCBA://TMPS +X SERVICE /HOME/CTF/CHECK CTF@672457BEDCBA://TMPS MPS JENSHIN /TMP/FLAG PERMISSION DENIED /TMP/SERVICE:1: CANNOT CREATE STATUS OF THE SSH SERVER:CTF@672457BEDCBA://TMP$ S ECHO 'CAT /HOME/CTF/FLAG' > SERVICE CTF@672457BEDCBA://TMPS /HOME/CTF/CHECKGER GENSHIN ISCTF{4FCE0D0A-B676-4878-91BD-62636FC940F5> S OF THE SSH SERVER:CTF@672457BEDCBA:/TMPS VC STATUS OF CTF@672457BEDCBA://TMPS -->
-![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1733129728300-2a187bd9-9a05-4c3c-9a91-97f80fc774f8.png)
 
 # WEB
 ## 绕进你的心里
-<!-- 这是一张图片，ocr 内容为：<?PHP  HIGHLIGHT_FILE(_FILE_ ERROR_REPORTING(0) REQUIRE 'FLAG.PHP' $STR   (STRING)$_POST[ PAN_GU $NUM  - $_GET['ZHURONG' $_GET['HONGMENG' $LIDA1 $ GET $1IDA2 SHANNONG MD5($1IDA2)) $1IDA2 F($LIDAL &BE 三三三 MD5($1IDA1) MCL5死边 ECHO $NUMY) { IF(PREG_MATCH("/[0-9]/ DIE(你干嘛?哎哟!"); ELSEIF(INTVAL($NUM)){ (PREG_MATCH(/.+?ISCTF/IS', $STR) DIE("再想想!"); 2023ISCTF') IF(STRIPOS($STR, FALSE) DIE("就差一点点啦!"); $F1AG: ECHO ?>MD5绕过了!再想想! -->
-![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1733130278066-bd9673fe-b6e8-403d-aaf3-056f4eb41363.png)
 
 数组绕过 + 数组绕过 + 回溯次数绕过
 
@@ -612,7 +572,6 @@ def textToarray(hash):
         array.append(code-97)
     return array
 
-
 def arrayTostring(array):
     string=''
     for i in range(0,len(array),2) :
@@ -644,9 +603,6 @@ function waf($str){
 ```
 
 对 SQL 部测试
-
-<!-- 这是一张图片，ocr 内容为：过意:显示所有条目 接收到响应 长度 错误 请求 超时 状态码 PAYLOAD 3107 153333 INFORMATION_SCHEMA 200 06840005% 3107 200 SLEEP 3107 200 BENCHMARK 3107 200 200 3107 3108 200 WHERE 3108 200 LIKE -->
-![](https://cdn.nlark.com/yuque/0/2024/png/35229002/1733139453402-1dd4eb5a-b8b6-48c1-a4dc-68cb21612d7b.png)
 
 ```plain
 WAF
@@ -714,6 +670,4 @@ users password
 ```
 
 盲注1 password 即可
-
-
 

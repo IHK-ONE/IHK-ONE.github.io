@@ -1,0 +1,259 @@
+---
+import Layout from '~/layouts/Layout.astro'
+const avatarUrl = 'https://avatars.githubusercontent.com/u/164609164?v=4'
+---
+
+<Layout title="简历" description="黄康 - 个人简历">
+  <style>
+    * { box-sizing: border-box; }
+    .resume-body {
+      margin: 0;
+      padding: 14px;
+      background: var(--color-bg, #f3f4f6);
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", Arial, sans-serif;
+      color: var(--color-text, #111);
+    }
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 28px 24px 24px;
+      background: var(--color-surface, #fff);
+      border-radius: 8px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+    .header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 100px;
+      gap: 14px;
+      align-items: start;
+      margin-bottom: 0;
+    }
+    .name {
+      margin: 0 0 7px;
+      font-size: 31px;
+      line-height: 1.02;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px 28px;
+      font-size: 13.5px;
+      line-height: 1.34;
+      margin-bottom: 3px;
+    }
+    .meta-item { white-space: nowrap; }
+    .meta-item strong { font-weight: 800; margin-right: 5px; }
+    .major { font-size: 13px; line-height: 1.34; }
+    .major .arrow { display: inline-block; margin-right: 3px; color: #666; font-weight: 700; }
+    .photo {
+      width: 100px;
+      height: 100px;
+      justify-self: end;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #e0e0e0;
+    }
+    .section { margin-top: 16px; }
+    .header + .section { margin-top: 8px; }
+    .section-title {
+      font-size: 15.3px;
+      font-weight: 800;
+      line-height: 1.15;
+      padding-bottom: 4px;
+      border-bottom: 2px solid #5f5f5f;
+      margin-bottom: 8px;
+    }
+    .skill-list, .certificate-list { margin: 0; padding-left: 16px; }
+    .skill-list li, .certificate-list li { margin: 2px 0; line-height: 1.42; font-size: 12.5px; }
+    .entry { margin-bottom: 10px; }
+    .entry-header {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 7px;
+      align-items: baseline;
+      font-size: 13.5px;
+      line-height: 1.26;
+      font-weight: 800;
+    }
+    .entry-company { text-align: left; white-space: nowrap; }
+    .entry-role { text-align: center; white-space: nowrap; color: #555; }
+    .entry-date { text-align: right; white-space: nowrap; font-weight: 800; }
+    .entry-body { margin-top: 2px; font-size: 12px; line-height: 1.5; }
+    .bullet-line { display: grid; grid-template-columns: 14px 1fr; gap: 2px; align-items: start; margin: 3px 0; }
+    .bullet-line .arrow { color: #666; font-weight: 700; line-height: 1.4; }
+    .label { font-weight: 800; }
+    .awards-highlight { margin: 0 0 4px; padding: 0; list-style: none; }
+    .awards-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 1px 18px; align-items: start; }
+    .awards { margin: 0; padding: 0; list-style: none; }
+    .awards li, .awards-highlight li {
+      position: relative;
+      padding-left: 12px;
+      font-size: 11.5px;
+      line-height: 1.4;
+      margin: 2px 0;
+    }
+    .awards li::before, .awards-highlight li::before {
+      content: "●";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #666;
+      font-size: 7px;
+      line-height: 1.85;
+    }
+    @media (max-width: 768px) {
+      .header { grid-template-columns: 1fr 80px; }
+      .photo { width: 80px; height: 80px; }
+      .meta-grid, .awards-columns { grid-template-columns: 1fr; }
+      .entry-header { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <div class="resume-body">
+    <div class="page">
+      <header class="header">
+        <div>
+          <h1 class="name">黄康</h1>
+          <div class="meta-grid">
+            <div class="meta-item"><strong>邮箱：</strong>ihk-1@qq.com</div>
+            <div class="meta-item"><strong>GitHub：</strong>github.com/IHK-ONE</div>
+            <div class="meta-item"><strong>南昌航空大学科技学院 本科</strong></div>
+            <div class="meta-item"><strong>毕业时间：</strong>2022.9 - 2026.6</div>
+          </div>
+          <div class="major"><span class="arrow">➤</span><strong>专业：</strong>网络空间安全</div>
+        </div>
+        <img class="photo" src={avatarUrl} alt="GitHub Avatar" />
+      </header>
+
+      <section class="section">
+        <div class="section-title">个人技能</div>
+        <ul class="skill-list">
+          <li>熟练使用 yakit、bp、msfconsole 等渗透工具，有黑盒测试、应急演练、攻防演练项目经验，熟知项目流程。</li>
+          <li>熟练掌握 CTF WEB 方向，熟知 SQL 注入、XSS、XXE、逻辑漏洞、反序列化等漏洞原理。</li>
+          <li>拥有多个 CVE / CNVD 编号：CNVD-2025-16450 / CVE-2025-2502、CNVD-2024-36811、CNVD-2024-346903 等。</li>
+          <li>熟练内网横向，熟练使用 impacket、mimikatz 等工具，以及 PTH、RBCD、Win 本地提权与权限维持。</li>
+          <li>擅长应急响应、上机排查、WebShell 流量分析，以及 volatility、axiom 等取证工具对系统内存取证溯源并还原攻击链。</li>
+          <li>具有多项行业网安赛事（中国移动、中国电信、中国石油）内网、AI、杂项方向出题与培训经验。</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <div class="section-title">工作经历</div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-company">北京长亭科技有限公司（杭州）</div>
+            <div class="entry-role">问知学苑 实习安全服务工程师</div>
+            <div class="entry-date">2024.12 -- 2025.03</div>
+          </div>
+          <div class="entry-body">
+            <div class="bullet-line"><div class="arrow">➤</div><div><span class="label">日常工作：</span>根据客户需求与比赛考点要求，结合自身学习方向，设计覆盖内网横向、应急响应、取证等多个方向的靶场与赛题，并在竞赛过程中负责问题定位、选手答疑、赛题修正和场外技术支持。</div></div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-company">北京长亭科技有限公司（北京）</div>
+            <div class="entry-role">问知学苑 实习安全服务工程师</div>
+            <div class="entry-date">2025.05 -- 2025.08</div>
+          </div>
+          <div class="entry-body">
+            <div class="bullet-line"><div class="arrow">➤</div><div><span class="label">日常工作：</span>根据客户需求与比赛考点要求，结合自身学习方向，设计覆盖内网横向、应急响应、取证等多个方向的靶场与赛题，编写 PPT / markdown，配合赛前培训、题目测试、问题复现和场外技术支持。</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">项目经历</div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-company">安徽移动徽盾领航 培训讲师</div>
+            <div class="entry-date">2026.05 -- 2026.05</div>
+          </div>
+          <div class="entry-body">
+            <div class="bullet-line"><div class="arrow">➤</div><div><span class="label">项目内容：</span>结合徽盾移动培训资料，讲授网络安全管理与风险治理、YD/T 4999 电信协议安全、AI 安全治理与实操、应急响应、数据安全合规等内容，覆盖关基保护、资产测绘、SBOM、GTP / SS7 / Diameter 信令安全、WebShell 流量分析与生成式 AI 数据全生命周期管控，并穿插运营商实际案例。</div></div>
+            <div class="bullet-line"><div class="arrow">➤</div><div><span class="label">项目成效：</span>围绕运营商场景完成课程梳理、知识点拆解与案例讲解，帮助参训人员理解安全治理、协议安全、AI 安全、应急处置、合规落地等内容。</div></div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-company">湖北移动集团 APT AI算网 培训讲师</div>
+            <div class="entry-date">2026.04 -- 2026.04</div>
+          </div>
+          <div class="entry-body">
+            <div class="bullet-line"><div class="arrow">➤</div><div><span class="label">项目内容：</span>根据赛事考点结合 AI 算网与 APT 渗透，帮助客户学习 APT 渗透、应急响应、安全运维和 AI Agent 内容，并演示本地搭建 Skill 后如何用 AI 辅助 CTF / 渗透 / 应急响应解题。</div></div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-company">江西移动集团 APT AI算网 培训讲师</div>
+            <div class="entry-date">2026.04 -- 2026.04</div>
+          </div>
+          <div class="entry-body">
+            <div class="bullet-line"><div class="arrow">➤</div><div><span class="label">项目内容：</span>根据赛事考点结合 AI 算网与 APT 渗透，帮助客户学习 APT 渗透、应急响应、安全运维和 AI Agent 内容，编写 PPT + markdown，并进行模拟出题和题目难度调整。</div></div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-company">中国移动赋能建功网络安全技能大赛 赛前培训讲师</div>
+            <div class="entry-date">2025.03 -- 2025.03</div>
+          </div>
+          <div class="entry-body">
+            <div class="bullet-line"><div class="arrow">➤</div><div><span class="label">项目内容：</span>根据赛事考点结合 AI 算网与应急响应，帮助客户学习本地搭建 AI 工作流、AI 提示词安全，以及运用 AI 进行 CTF / 渗透 / 应急响应解题，并在培训中穿插演示和答疑。</div></div>
+            <div class="bullet-line"><div class="arrow">➤</div><div><span class="label">项目成效：</span>客户掌握本地搭建 Dify + Ollama 工作流并运用，了解 AI 安全问题，并能在比赛中用于辅助解题。</div></div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-company">中国华电（内蒙古）护网行动 安全监测</div>
+            <div class="entry-date">2024.08 -- 2024.09</div>
+          </div>
+          <div class="entry-body">
+            <div class="bullet-line"><div class="arrow">➤</div><div><span class="label">项目内容：</span>对安全设备进行监控，通过基线排查与脆弱性扫描，配合 XDR 设备梳理易受攻击资产，利用态势感知与防火墙阻断恶意流量，并协助告警研判、封禁处置和值守记录。</div></div>
+            <div class="bullet-line"><div class="arrow">➤</div><div><span class="label">项目成效：</span>项目期间无攻击成功，封禁 IP 400 余条，整理值守记录、封禁情况和复盘材料。</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">技能证书</div>
+        <ul class="certificate-list">
+          <li>国家信息安全水平考试 NISP 二级</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <div class="section-title">获奖证书</div>
+        <ul class="awards-highlight">
+          <li>2023年 第17届全国大学生信息安全竞赛 CISCN 半决赛（华东南赛区）二等奖</li>
+        </ul>
+        <div class="awards-columns">
+          <ul class="awards">
+            <li>2023年 第三届陕西省大学生网络安全技能大赛 出题人</li>
+            <li>2023年 第七届蓝帽杯全国大学生网络安全技能大赛 决赛 三等奖</li>
+            <li>2023年 江西省大学生网络信息安全技术大赛 决赛 一等奖</li>
+            <li>2023年 第三届"鹏城杯"联邦网络靶场协同攻防演练 决赛 优胜奖</li>
+            <li>2023年 第七届强网杯全国网络安全挑战赛 强网先锋</li>
+            <li>2024年 第一届"长城杯"信息安全铁人三项赛 决赛 三等奖</li>
+            <li>2024年 第18届全国大学生信息安全竞赛 CISCN 决赛 二等奖</li>
+          </ul>
+          <ul class="awards">
+            <li>2024年 江西省大学生网络信息安全技术大赛 决赛 二等奖</li>
+            <li>2024年 第七届"强网"拟态防御国际精英挑战赛 决赛 优秀奖</li>
+            <li>2024年 第八届强网杯全国网络安全挑战赛 决赛 三等奖</li>
+            <li>2025年 第十八届全国大学生信息安全竞赛 半决赛 一等奖</li>
+            <li>2025年 第八届西湖论剑 决赛 三等奖</li>
+            <li>2025年 第二届"长城杯"信息安全铁人三项赛 决赛 二等奖</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>

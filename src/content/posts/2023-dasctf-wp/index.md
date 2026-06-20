@@ -11,15 +11,10 @@ tags: ['CTF', 'DASCTF', 'MISC', '2023']
 <font style="color:rgb(33, 37, 41);">DASCTF{DASCTF7_0x401_Happy}</font>
 
 ### <font style="color:rgb(33, 37, 41);">ezFAT32</font>
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1690022610256-d1eab9db-6bbc-4b8d-9600-df6825a09321.png)
 
 ```plain
 foremost -i misc2.zip -T 分离出flag.zip压缩包
 ```
-
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1690022710052-0feed2e1-0fc7-45b2-90f8-8ca3dbd2d437.png)
 
 R-studio 扫描得到一个hint和一张bitmap，导出bmp进行sha256得到sha值
 
@@ -45,14 +40,7 @@ Upgrade-Insecure-Requests: 1
 Content-Length: 0
 Accept-Additions: milktea
 
-
-
 ```
-
-
-
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1690030321427-e18d64b1-d9d3-4bb3-a125-794d26ff5948.png)
 
 ```plain
 在使用GET 获取咖啡
@@ -68,7 +56,4 @@ Upgrade-Insecure-Requests: 1
 Content-Length: 0
 Accept-Additions: milktea
 ```
-
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1690031191558-e1a8c31e-4039-4aea-852e-2da8e47f4dd6.png)
 

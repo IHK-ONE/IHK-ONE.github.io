@@ -39,6 +39,10 @@ export const HEADER_LINKS: Link[] = [
     name: '标签',
     url: '/tags',
   },
+  {
+    name: '简历',
+    url: '/resume',
+  },
 ]
 
 export const FOOTER_LINKS: Link[] = [

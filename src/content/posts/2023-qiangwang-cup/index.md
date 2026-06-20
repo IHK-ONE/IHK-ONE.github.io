@@ -1,5 +1,5 @@
 ---
-title: '第七届强网杯 Writeup'
+title: '2023 第七届强网杯 Writeup'
 description: '第七届强网杯全国网络安全挑战赛 Writeup。'
 pubDate: 2023-12-17
 author: 'IHK-1'
@@ -73,9 +73,6 @@ RC4 加密 PNG 头 > 0e 3c b4 2f
 
 # dump出镜像中该部分区块，进行RC4 解密
 ```
-
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/png/35229002/1702806112037-36fd58db-8796-4449-82fc-2d8ab14e1ac8.png)
 
 ```plain
 flag{It's_So_Hard_To_Find_A_Picture}
