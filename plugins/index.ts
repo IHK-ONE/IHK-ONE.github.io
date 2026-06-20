@@ -8,6 +8,7 @@ import remarkReadingTime from './remark-reading-time'
 import remarkLQIP from './remark-lqip.js'
 import remarkGithubCard from './remark-github-card'
 
+import rehypeImgReferrer from './rehype-img-referrer'
 import rehypeSlug from 'rehype-slug'
 import rehypeUnwrapImages from 'rehype-unwrap-images'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
@@ -59,6 +60,7 @@ export const remarkPlugins = [
 ] as RemarkPlugin[]
 
 export const rehypePlugins = [
+  rehypeImgReferrer,
   rehypeSlug,
   rehypeUnwrapImages,
   [
