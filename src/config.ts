@@ -19,7 +19,7 @@ export const SITE: Site = {
     'CTF 解题笔记、网络安全研究、技术学习记录 — IHK-1 的个人博客',
   website: 'https://ihk-one.github.io',
   lang: 'zh-CN',
-  base: '/',
+  base: '/blog/',
   author: 'IHK-1',
   ogImage: '/og-image.webp',
   transition: false,
