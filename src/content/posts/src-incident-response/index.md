@@ -7,6 +7,8 @@ tags: ['SRC', '应急响应', '安全运维', '知识总结']
 ---
 
 ## 漏洞研判溯源 && 响应策略
+<!-- 这是一张图片，ocr 内容为：弱口令 扫描后门 代码审计 防守 部署WAF 流量监控 -->
+
 
 ```plain
 防御：
@@ -82,6 +84,9 @@ syslog	系统信息记录
 C:\Windows\my.ini、C:\Windows\mysql\my.ini
 在Linux系统中，MySQL的默认配置路径为/etc/mysql/my.cnf。查看是否开启日志审计，若开启，则将显示日志路径。
 ```
+
+<!-- 这是一张图片，ocr 内容为： -->
+
 
 ```plain
 1.status 查看当前数据库状态
@@ -555,6 +560,7 @@ def web_server_command(command,transport): #对服务器执行命令
     stdin, stdout, stderr = ssh.exec_command(command)
     # print(stdout.read())
 
+
 def web_server_file_action(ip, port, user, passwd, action): #对服务器文件操作
     try:
         transport = paramiko.Transport(ip, int(port))
@@ -586,6 +592,7 @@ def web_server_file_action(ip, port, user, passwd, action): #对服务器文件�
     except:
         pass
         print('download or upload error')
+
 
 def web_server_mysql_action():
     #web_server_mysql_action
@@ -838,14 +845,29 @@ make install
 ## 系统信息
 systeminfo
 
+<!-- 这是一张图片，ocr 内容为：WINDOWS POWERSHELL COPYRIGHT (C) MICROSOFT CORPORATION. ALL RIGHTS RESERVED. PS C:\USERS\USER> SYSTEMINFO RED-WIN-ENUM HOST NAME: MICROSOFT WINDOWS SERVER 2019 DATACENTER OS NAME: 10.0.17763 N/A BUILD 17763 OS VERSION: OS MANUFACTURER: MICROSOFT CORPORATION OS CONFIGURATION: STANDALONE SERVER MULTIPROCESSOR FREE OS BUILD TYPE: EC2 REGISTERED OWNER: ORGANIZATION: AMAZON.COM REGISTERED PRODUCT ID: 00430-00000-00000-AA155 3/17/2021,  2:59:06 PM ORIGINAL INSTALL DATE: 5/12/2025,3:21:28 PM SYSTEM BOOT TIME: SYSTEM MANUFACTURER: AMAZON EC2 T3A.SMALL SYSTEM MODEL: X64-BASED PC SYSTEM TYPE: 1 PROCESSOR(S) INSTALLED. PROCESSOR(S): ~2200 MHZ [01]: AMD64 FAMILY 23 MODEL 1 STEPPING 2 AUTHENTICAMD BIOS VERSION: AMAZON EC2  1.0,10/16/2017 C:\WINDOWS DIRECTORY: WINDOWS SYSTEM DIRECTORY: C:\WINDOWS\SYSTEM32 \DEVICE\HARDDISKVOLUME1 BOOT DEVICE: EN-US;ENGLISH (UNITED STATES) SYSTEM LOCALE: EN-US;ENGLISH (UNITED STATES) INPUT LOCALE: (UTC) COORDINATED UNIVERSAL TIME TIME ZONE: 2,016 MB TOTAL PHYSICAL MEMORY: AVAILABLE PHYSICAL MEMORY:669 MB VIRTUAL MEMORY:MAX SIZE: 2,400  MB VIRTUAL MEMORY:AVAILABLE: 1,035 MB VIRTUAL MEMORY:IN USE: 1,365 MB PAGE FILE LOCATION(S): C:\PAGEFILE.SYS WORKGROUP DOMAIN: LARED-WIN-ENUM LOGON SERVER: 30 HOTFIX(S) INSTALLED. HOTFIX(S): [01]:KB5015731 [02]:KB4470502 [03]:KB4470788 [04]:KB4480056 [05]:KB4486153 [06]:KB4493510 -->
+
+
 ## windows 服务
 1. 使用 net start 查看系统服务（net 命令是 net view，显示 windows 域信息）
 
+<!-- 这是一张图片，ocr 内容为：PS C:\USERS\USER> NET START THESE WINDOWS SERVICES ARE STARTED: AMAZON SSM AGENT APP READINESS APPLICATION HOST HELPER SERVICE APPLICATION INFORMATION APPX DEPLOYMENT SERVICE (APPXSVC) BACKGROUND TASKS INFRASTRUCTURE SERVICE BASE FILTERING ENGINE CERTIFICATE PROPAGATION CLIENT LICENSE SERVICE (CLIPSVC) CNG KEY ISOLATION COM+EVENT SYSTEM COMPUTER BROWSER CONNECTED DEVICES PLATFORM SERVICE CONNECTED DEVICES PLATFORM USER SERVICE_71D33 COREMESSAGING CRYPTOGRAPHIC SERVICES DATA SHARING SERVICE DCOM SERVER PROCESS LAUNCHER DELIVERY OPTIMIZATION DEVICE SETUP MANAGER DHCP CLIENT DIAGNOSTIC POLICY SERVICE DIAGNOSTIC SYSTEM HOST DISTRIBUTED LINK TRACKING CLIENT DISTRIBUTED TRANSACTION COORDINATOR DNS CLIENT DNSSERVER FUNCTION DISCOVERY PROVIDER HOST FUNCTION DISCOVERY RESOURCE PUBLICATION GROUP POLICY CLIENT IP HELPER -->
+
+
 2. net user 查看用户信息
+
+<!-- 这是一张图片，ocr 内容为：PS C:\USERS\USER> NET USER RED-WIN-ENUM USER ACCOUNTS FOR ADMINISTRATOR DEFAULTACCOUNT GUEST JANE MICHAEL PETER STRATEGOS RANDA SSHD WDAGUTILITYACCOUNT USER THE COMMAND COMPLETED SUCCESSFULLY. -->
+
 
 3. net localgroup administrators 查看管理组用户
 
+<!-- 这是一张图片，ocr 内容为：PS C:\USERS\USER> NET LOCALGROUP A ROUP ADMINISTRATORS ALIAS NAME ADMINISTRATORS CTED ACCESS TO THE COMPUTER/DOMAIN ADMINISTRATORS HAVE COMPLETE AND UNRESTRICTED COMMENT MEMBERS ADMINISTRATOR PETER STRATEGOS USER THE COMMAND COMPLETED SUCCESSFULLY. -->
+
+
 4. net share 查看共享文件
+
+<!-- 这是一张图片，ocr 内容为：PS C:\USERS\USER> NET SHARE SHARE NAME RESOURCE REMARK C:1 C$ DEFAULT SHARE IPC$ REMOTE IPC C:\WINDOWS ADMIN$ REMOTE ADMIN INTERNAL DOCUMENTS C:\INTERNAL FILES INTERNAL ENJOY SMB SHARES C:\USERS\USER\PRIVATE THM{829738] C:\USERS USERS THE COMMAND COMPLETED SUCCESSFULLY. -->
+
 
 ## 个人信息
 ```plain
@@ -901,16 +923,31 @@ Active Connections
 ### <font style="color:rgb(119, 119, 119);">a.特征</font>
 <font style="color:rgb(51, 51, 51);">https-beacon通信中，cs默认使用空证书建立加密通道，流量中可以看见这一过程。</font>
 
+<!-- 这是一张图片，ocr 内容为： -->
+
+
 <font style="color:rgb(51, 51, 51);">同时在 https 协议的 Client Hello 和 Server Hello 阶段，都包含了 JA3S 值传输过程过程中会有 ja3，这个值在系统上是固定的，win10是一种的 但win11是另一种 他们取决于操作系统</font>
+
+<!-- 这是一张图片，ocr 内容为： -->
+
 
 <font style="color:rgb(51, 51, 51);">http-beacon通信中，默认使用get方法向/dpixel、/__utm.gif、/pixel.gif等地址发起请求</font>
 
 <font style="color:rgb(51, 51, 51);">同时get读文件时cookie是一串base64的值，这是cs流量的元数据（后面解密会用）</font>
 
+<!-- 这是一张图片，ocr 内容为： -->
+
+
 ### <font style="color:rgb(119, 119, 119);">b.shell内容</font>
 <font style="color:rgb(51, 51, 51);">POST /submit.php?id=xxxxx</font>
 
+<!-- 这是一张图片，ocr 内容为： -->
+
+
 <font style="color:rgb(51, 51, 51);">其中post一串0000的data为cs发送流量的数据 （解密时需要转成base64）</font>
+
+<!-- 这是一张图片，ocr 内容为： -->
+
 
 ### <font style="color:rgb(119, 119, 119);">c.密钥文件</font>
 <font style="color:rgb(51, 51, 51);">.cobalstrike.beacon_keys 的java反序列化字节流 .ser文件</font>
@@ -920,11 +957,20 @@ Active Connections
 
 <font style="color:rgb(51, 51, 51);">导入java反序列化字节流文件入 parse_beacon_keys.py 得到rsa公私钥，私钥为主</font>
 
+<!-- 这是一张图片，ocr 内容为： -->
+
+
 [https://github.com/WBGlIl/CS_Decrypt](https://github.com/WBGlIl/CS_Decrypt)
 
 <font style="color:rgb(51, 51, 51);">将私钥和 cookie 值（cs元数据）导入 Beacon_metadata_RSA_Decrypt.py 解密出AES key 和 HMAC key</font>
 
+<!-- 这是一张图片，ocr 内容为： -->
+
+
 <font style="color:rgb(51, 51, 51);">导入 AES key 和 HMAC key 和发送数据的base64格式入 Beacon_Task_return_AES_Decrypt.py 解密发送的数据</font>
+
+<!-- 这是一张图片，ocr 内容为： -->
+
 
 ## <font style="color:rgb(51, 51, 51);">2.冰蝎流量</font>
 ### <font style="color:rgb(119, 119, 119);">a.特征</font>
@@ -1012,6 +1058,9 @@ class C{public function __invoke($p) {eval($p."");}}
 ### <font style="color:rgb(119, 119, 119);">c.解密冰蝎流量（iv用00填充）</font>
 <font style="color:rgb(51, 51, 51);">请求包和返回包（重点！iv是全0填充0000000000000000000000000000000）</font>
 
+<!-- 这是一张图片，ocr 内容为： -->
+
+
 <font style="color:rgb(51, 51, 51);">解密的结果再进行一次base64解密即可</font>
 
 <font style="color:rgb(51, 51, 51);">python解密脚本</font>
@@ -1043,15 +1092,30 @@ print(plaintext)
 ### <font style="color:rgb(119, 119, 119);">b.解密</font>
 <font style="color:rgb(51, 51, 51);">AES ECB解出 class文件</font>
 
+<!-- 这是一张图片，ocr 内容为： -->
+
+
 <font style="color:rgb(51, 51, 51);">使用jadx进行反编译</font>
+
+<!-- 这是一张图片，ocr 内容为： -->
+
 
 <font style="color:rgb(51, 51, 51);">再将返回值进行解密</font>
 
+<!-- 这是一张图片，ocr 内容为： -->
+
+
 <font style="color:rgb(51, 51, 51);">将raw值进行AES解密</font>
+
+<!-- 这是一张图片，ocr 内容为： -->
+
 
 ## <font style="color:rgb(51, 51, 51);">4.哥斯拉流量</font>
 ### <font style="color:rgb(119, 119, 119);">a.特征</font>
 <font style="color:rgb(51, 51, 51);">命令执行的变量名/pass为webshell连接密码 </font>
+
+<!-- 这是一张图片，ocr 内容为： -->
+
 
 ### <font style="color:rgb(119, 119, 119);">b.shell命令</font>
 ```plain
@@ -1091,9 +1155,15 @@ if (isset($_POST[$pass])){
 ### <font style="color:rgb(119, 119, 119);">c.解密</font>
 <font style="color:rgb(51, 51, 51);">base64解密后异或key，重要（其中key的第一位要移到最后一位）</font>
 
+<!-- 这是一张图片，ocr 内容为： -->
+
+
 ## <font style="color:rgb(51, 51, 51);">5.哥斯拉流量（java）</font>
 ### <font style="color:rgb(119, 119, 119);">a.解密</font>
 <font style="color:rgb(51, 51, 51);">得到16进制密文后 进行 AES ECB解密，在进行Gzip</font>
+
+<!-- 这是一张图片，ocr 内容为： -->
+
 
 ## <font style="color:rgb(51, 51, 51);">6.蚁剑/菜刀流量</font>
 ### a.特征 & 密码 & 解密

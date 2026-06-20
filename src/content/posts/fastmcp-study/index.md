@@ -289,6 +289,8 @@ resource_prefix_format : 如何格式化资源前缀（“路径”或“协议�
 include_fastmcp_meta : 是否在组件响应中包含 FastMCP 元数据（默认：True），通过 FASTMCP_INCLUDE_FASTMCP_META 设置
 ```
 
+
+
 查看全局配置，可以通过环境遍历进行配置
 
 ```python
@@ -662,6 +664,8 @@ def sort_data(
     # Implementation...
 ```
 
+
+
 也可以使用 Enum 更受限制一些，更结构化一些
 
 ```python
@@ -745,6 +749,8 @@ def create_user(user: User):
     # Implementation...
 ```
 
+
+
 一些 field 的补充，一般用于设置默认信息
 
 ```python
@@ -773,6 +779,8 @@ e2 = Event("B")
 print(e1.timestamp, e2.timestamp)
 # 2025-08-21 16:15:00  2025-08-21 16:15:00   <- 一样的
 ```
+
+
 
 Field_factory 设置动态的默认信息，相当于 return，返回时间是不一样的
 
@@ -1138,6 +1146,7 @@ from fastmcp import FastMCP
 
 mcp = FastMCP(name="DataServer")
 
+
 # Standard parameter only matches one segment
 @mcp.resource("files://{filename}")
 def get_file(filename: str) -> str:
@@ -1145,12 +1154,14 @@ def get_file(filename: str) -> str:
     # Will only match files://<single-segment>
     return f"File content for: {filename}"
 
+
 # Wildcard parameter can match multiple segments
 @mcp.resource("path://{filepath*}")
 def get_path_content(filepath: str) -> str:
     """Retrieves content at a specific path."""
     # Can match path://docs/server/resources.mdx
     return f"Content at path: {filepath}"
+
 
 # Mixing standard and wildcard parameters
 @mcp.resource("repo://{owner}/{path*}/template.py")
@@ -1375,4 +1386,6 @@ def greeting(): return "Hello, how can I help you today?"
 # @mcp.prompt
 # def greeting(): return "Hi there! What can I do for you?"
 ```
+
+
 

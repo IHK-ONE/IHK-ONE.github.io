@@ -8,6 +8,8 @@ tags: ['CTF', '极客大挑战', '2023']
 
 # MISC
 ##  ez_smilemo
+<!-- 这是一张图片，ocr 内容为：" UNDERTALEMODTOOL BY KRZYS.H V:0.5.1.0 -"SMILEMO"(GM 2022.3)(C.VUSERSLHKIDESKTOP\DATA.WIN] EILE SCRIPTSEIND HELP X STRING - C20XBGVFMXNFQUMWNIX2DABWU FILTER BY NAME... CONTENT C20XBGVFMXNFQF9UMWNIX2DABWU三 P0 GML_OBJECT.OTELELN_STEP_ GMLOBJECTOTELELN_COLLISION OPLAYER GMLOBJECTOTELELN_PRECREATE_0 GMLOBJECT_OMISSILEMINI_CREATE_O GMLOBJECTOMISSILEMINI_ALARM_O GMLOBJECT_OMISSILEMINI STEP.O GML_OBJECT_OMISSILEMINI_COLLISION_PAR_B GMLOBJECT.OMISSILEMINIPRECREATE_O GML.OBJECT OBOSSENEMYCRPOINT_CREATE GMLOBJECT OBOSSENEMYCRPOINT_ALARM_ STEP 0 GML_OBJECT_OBOSSENEMYCRPOINT_ SASSSSSSSSSASSANASAANARANARSANSSSANSSSASSANSSANSSSAN GML_OBJECT_OBOSSENEMYCRPOINT PRECREA C20XBGVFMXNFQF9UMWNIX2DABWU -NOW GIVE YOU FI@G- EMBEDDED TEXTURES EMBEDDED AUDIO TEXTURE GROUP INFORMATION EMBEDDED IMAGES 3098 -->
+
 
 ```plain
 UndertaleModTool解包data.win，在字符串最后的内容中找到flag
@@ -40,6 +42,12 @@ binwalk -e 1.jpg
 解压压缩包得到以下图片，进行识图得到码表
 ```
 
+<!-- 这是一张图片，ocr 内容为：LL LIJ LL 17 |]三二1:: -->
+
+
+<!-- 这是一张图片，ocr 内容为：1 :小| IIKKI F H E A N S O N BAITE TP://BLOG CSDN.NET/P2017118 -->
+
+
 ```plain
 对照码表得到
 i want to go to liquor city
@@ -68,8 +76,12 @@ im= im.resize((75,75))
 im.save('out2.png')
 ```
 
-异或
-反色
+异或<!-- 这是一张图片，ocr 内容为： -->
+
+
+反色<!-- 这是一张图片，ocr 内容为： -->
+
+
 ```plain
 SYC{hOp3_u_h@ve_Fun}
 ```
@@ -115,6 +127,12 @@ for y in range((im.size[1] - start_pixel[1]) // size):
 out.show()
 ```
 
+<!-- 这是一张图片，ocr 内容为：LOP HOT HUFHE FHE ONKUGUNT -->
+
+
+<!-- 这是一张图片，ocr 内容为：新邦通事实家的新通新派 ABIDEFGHIJELIM ZAMANISABDON -->
+
+
 ```python
 省略此步骤，复现对照码表麻烦
 ```
@@ -143,11 +161,20 @@ for i in range(n_frame):
 
 多图拼接
 
+<!-- 这是一张图片，ocr 内容为： -->
+
+
 ```plain
 gaps run 'input.png' 'output.png' --size=48
 ```
 
+<!-- 这是一张图片，ocr 内容为：我是奇乐 -->
+
+
 L.mp3中间部分使用mmsstv，得到图像
+
+<!-- 这是一张图片，ocr 内容为：SYCH4XROTOR -->
+
 
 ```plain
 SYC{H4xr0t0r__14_Ki114R}
@@ -183,6 +210,9 @@ while True:
 out.save('out.png')
 
 ```
+
+<!-- 这是一张图片，ocr 内容为：SYCLWELC0M4.TO DE@TH_WOR1DJ -->
+
 
 ```plain
 SYC{we1c0m4_T0_De@th_W0r1d}

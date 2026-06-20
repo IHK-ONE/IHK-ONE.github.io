@@ -11,10 +11,15 @@ tags: ['CTF', 'DASCTF', 'MISC', '2023']
 <font style="color:rgb(33, 37, 41);">DASCTF{DASCTF7_0x401_Happy}</font>
 
 ### <font style="color:rgb(33, 37, 41);">ezFAT32</font>
+<!-- 这是一张图片，ocr 内容为： -->
+
 
 ```plain
 foremost -i misc2.zip -T 分离出flag.zip压缩包
 ```
+
+<!-- 这是一张图片，ocr 内容为： -->
+
 
 R-studio 扫描得到一个hint和一张bitmap，导出bmp进行sha256得到sha值
 
@@ -40,7 +45,14 @@ Upgrade-Insecure-Requests: 1
 Content-Length: 0
 Accept-Additions: milktea
 
+
+
 ```
+
+
+
+<!-- 这是一张图片，ocr 内容为： -->
+
 
 ```plain
 在使用GET 获取咖啡
@@ -56,4 +68,7 @@ Upgrade-Insecure-Requests: 1
 Content-Length: 0
 Accept-Additions: milktea
 ```
+
+<!-- 这是一张图片，ocr 内容为： -->
+
 

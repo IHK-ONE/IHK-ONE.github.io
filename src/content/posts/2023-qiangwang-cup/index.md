@@ -74,6 +74,9 @@ RC4 加密 PNG 头 > 0e 3c b4 2f
 # dump出镜像中该部分区块，进行RC4 解密
 ```
 
+<!-- 这是一张图片，ocr 内容为： -->
+
+
 ```plain
 flag{It's_So_Hard_To_Find_A_Picture}
 ```
