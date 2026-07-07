@@ -90,6 +90,7 @@ const getRelativeIndentClass = (depth: number) => {
 
     let currentActiveHeading: string | null = null
     let scrollTimeout: number | null = null
+    let suppressAutoScroll = false
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -108,7 +109,7 @@ const getRelativeIndentClass = (depth: number) => {
                 }
 
                 scrollTimeout = window.requestAnimationFrame(() => {
-                  if (tocContainer) {
+                  if (tocContainer && !suppressAutoScroll) {
                     const activeLinkElement = link as HTMLElement
                     const activeLinkTop = activeLinkElement.offsetTop
                     const activeLinkHeight = activeLinkElement.offsetHeight
@@ -132,6 +133,16 @@ const getRelativeIndentClass = (depth: number) => {
     )
 
     headingElements.forEach((heading) => observer.observe(heading))
+
+    // 点击目录链接时，禁止自动滚动一段时间，避免点击后的二次滑动
+    headingLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        suppressAutoScroll = true
+        setTimeout(() => {
+          suppressAutoScroll = false
+        }, 600)
+      })
+    })
 
     // 页面加载时检查当前可见的标题
     setTimeout(() => {
