@@ -40,9 +40,9 @@ const getRelativeIndentClass = (depth: number) => {
       <span class="icon-[fluent--list-20-filled] w-4 h-4 opacity-85"></span>
       {POSTS_CONFIG.tocText}
     </h3>
-    <div class="relative h-[calc(100vh-24rem)] overflow-hidden">
+    <div class="relative h-[calc(100vh-24rem)] overflow-y-auto scroll-smooth" data-desktop-toc-container>
       <ul
-        class="space-y-2 absolute w-full transition-transform duration-300 will-change-transform"
+        class="space-y-2 w-full"
         data-desktop-toc-list
         style="content-visibility: auto;"
       >
@@ -84,8 +84,7 @@ const getRelativeIndentClass = (depth: number) => {
   function updateActiveHeading() {
     const headingElements = document.querySelectorAll('h1[id], h2[id], h3[id], h4[id]')
     const headingLinks = document.querySelectorAll('[data-desktop-heading-link]')
-    const tocList = document.querySelector('[data-desktop-toc-list]') as HTMLElement
-    const tocContainer = tocList?.parentElement as HTMLElement
+    const tocContainer = document.querySelector('[data-desktop-toc-container]') as HTMLElement
 
     if (!headingLinks.length) return
 
@@ -109,18 +108,14 @@ const getRelativeIndentClass = (depth: number) => {
                 }
 
                 scrollTimeout = window.requestAnimationFrame(() => {
-                  if (tocList && tocContainer) {
-                    const containerHeight = tocContainer.offsetHeight
+                  if (tocContainer) {
                     const activeLinkElement = link as HTMLElement
                     const activeLinkTop = activeLinkElement.offsetTop
                     const activeLinkHeight = activeLinkElement.offsetHeight
-                    const tocListHeight = tocList.offsetHeight
+                    const containerHeight = tocContainer.clientHeight
 
-                    let targetTransform = Math.max(0, activeLinkTop - containerHeight / 2 + activeLinkHeight / 2)
-                    targetTransform = Math.min(targetTransform, tocListHeight - containerHeight)
-
-                    tocList.style.transition = 'transform 0.3s ease-out'
-                    tocList.style.transform = `translateY(-${targetTransform}px)`
+                    const targetScroll = activeLinkTop - containerHeight / 2 + activeLinkHeight / 2
+                    tocContainer.scrollTo({ top: targetScroll, behavior: 'smooth' })
                   }
                 })
               } else {
