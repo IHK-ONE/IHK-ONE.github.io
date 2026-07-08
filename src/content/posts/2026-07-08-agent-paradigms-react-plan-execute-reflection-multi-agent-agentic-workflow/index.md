@@ -1208,7 +1208,7 @@ if __name__ == "__main__":
      新版: 7001 字符
      变化: 增加 2657 字符 (61%)
      变动行: 152/158 (96%)
-  📄 改进版 (7001 字符): ```python
+  📄 改进版 (7001 字符): python
 from threading import Lock, Thread
 from typing import TypeVar, Generic, Optional, Dict, Any
 import time
@@ -1253,7 +1253,7 @@ class _LinkedListNode:
      新版: 7319 字符
      变化: 增加 318 字符 (5%)
      变动行: 186/245 (76%)
-  📄 改进版 (7319 字符): ```python
+  📄 改进版 (7319 字符): python
 from threading import Lock, Thread
 from typing import TypeVar, Generic, Optional, Dict
 import time
@@ -1303,7 +1303,7 @@ class _LinkedListNode:
 ─────────────────────────────────────────────────────────────────
   📦 最终交付:
 ─────────────────────────────────────────────────────────────────
-```python
+python
 from threading import Lock, Thread
 from typing import TypeVar, Generic, Optional, Dict
 import time
@@ -1551,7 +1551,7 @@ if __name__ == '__main__':
 
     print("Concurrency tests passed.")
     print("All tests passed.")
-```
+
 ```
 
 # Multi-Agent
@@ -1570,8 +1570,8 @@ if __name__ == '__main__':
 + 典型案例：一个内容生产流水线：选题 Agent → 写作 Agent → 编辑 Agent → 排版 Agent → 发布 Agent。
 
 ### 圆桌讨论
-+ <font style="color:rgb(0, 0, 0);">核心特点：所有 Agent 地位平等，没有中央决策者。它们通过轮流发言、交换信息、提出观点、互相辩论的方式，共同探索问题的解决方案，最终通过投票或共识来做出决策。</font>
-+ <font style="color:rgb(0, 0, 0);">典型案例：一个战略决策团队，包括市场分析师 Agent、技术专家 Agent、财务专家 Agent、风险评估 Agent。</font>
++ 核心特点：所有 Agent 地位平等，没有中央决策者。它们通过轮流发言、交换信息、提出观点、互相辩论的方式，共同探索问题的解决方案，最终通过投票或共识来做出决策。
++ 典型案例：一个战略决策团队，包括市场分析师 Agent、技术专家 Agent、财务专家 Agent、风险评估 Agent。
 
 ## 优缺点
 优点：
@@ -1760,7 +1760,7 @@ if __name__ == "__main__":
 
   ┌─ 💻 开发工程师: 独立上下文 (只看 system + 上游输出) ──┐
   │ 上下文大小: 2 条 (system ×1 + 上游输出 ×1)
-  │ 输出: ```python from typing import List  def merge_intervals(intervals: List[List[int]]) -> List[List[int]]:     """     合并所有重叠的闭区间，返回按起点升序的不重叠区间列表。      区间包含端点，相邻且端点接触的两个区间（如 [1,2] 和 [2,4]）将被合并。     输入区间未排...
+  │ 输出: python from typing import List  def merge_intervals(intervals: List[List[int]]) -> List[List[int]]:     """     合并所有重叠的闭区间，返回按起点升序的不重叠区间列表。      区间包含端点，相邻且端点接触的两个区间（如 [1,2] 和 [2,4]）将被合并。     输入区间未排...
   └──────────────────────────────────────────────────────────┘
   ╚═══════════════════════════════════════════════════════╝
 
@@ -1870,7 +1870,7 @@ if __name__ == "__main__":
    - 返回 `merged`，此时列表已按起点升序且互不重叠。
 
 **伪代码**：
-```python
+python
 def merge_intervals(intervals):
     if not intervals:
         return []
@@ -1882,7 +1882,6 @@ def merge_intervals(intervals):
         else:
             merged[-1][1] = max(merged[-1][1], end)
     return merged
-```
 
 ---
 
@@ -1906,7 +1905,7 @@ def merge_intervals(intervals):
 ## 4. 模块接口定义
 
 ### 函数签名
-```python
+python
 def merge_intervals(intervals: list[list[int]]) -> list[list[int]]:
     """合并所有重叠的闭区间，返回按起点升序的不重叠区间列表。
 
@@ -1934,7 +1933,6 @@ def merge_intervals(intervals: list[list[int]]) -> list[list[int]]:
         >>> merge_intervals([])
         []
     """
-```
 
 ### 参数与返回值约束
 - **输入**：  
@@ -1955,7 +1953,7 @@ def merge_intervals(intervals: list[list[int]]) -> list[list[int]]:
 ────────────────────────────────────────────────────────────
   [代码]
 ────────────────────────────────────────────────────────────
-```python
+python
 from typing import List
 
 def merge_intervals(intervals: List[List[int]]) -> List[List[int]]:
@@ -2041,7 +2039,6 @@ if __name__ == "__main__":
         print("全部测试用例通过！")
     else:
         print("存在未通过的测试用例。")
-```
 
 ────────────────────────────────────────────────────────────
   [测试报告]
@@ -2273,12 +2270,12 @@ if __name__ == "__main__":
 
 ### 程序员A 方案评审
 **提交代码**
-```python
+python
 def find_missing_number(nums: list[int]) -> int:
     n = len(nums)
     total = n * (n + 1) // 2
     return total - sum(nums)
-```
+
 **分析**  
 - 时间复杂度：O(n)（sum 遍历一次）。  
 - 空间复杂度：O(1)，只用了常数变量。  
@@ -2293,7 +2290,7 @@ def find_missing_number(nums: list[int]) -> int:
 ────────────────────────────────────────────────────────────
   [方案A(性能)]
 ────────────────────────────────────────────────────────────
-```python
+python
 """
 性能优先方案：使用数学总和公式计算缺失数字。
 时间复杂度 O(n)，空间复杂度 O(1)，不修改输入数组。
@@ -2327,7 +2324,7 @@ if __name__ == "__main__":
 ────────────────────────────────────────────────────────────
   [方案B(简洁)]
 ────────────────────────────────────────────────────────────
-```python
+python
 import functools
 import operator
 
@@ -2349,12 +2346,12 @@ if __name__ == "__main__":
     for nums, expected in tests:
         assert find_missing_number(nums) == expected, f"Failed for {nums}"
     print("所有测试通过")
-```
+
 
 ────────────────────────────────────────────────────────────
   [方案C(安全)]
 ────────────────────────────────────────────────────────────
-```python
+python
 """
 安全优先风格实现：使用原地哈希（交换元素到对应索引）查找缺失数字。
 
@@ -2960,8 +2957,4 @@ if __name__ == "__main__":
 2. 错了代价多大？高 → 必须 Reflection + 自动化测试/规则，最好加人工节点。
 3. 是否需要多专业角色？是 → 再考虑 Multi-Agent；否 → 单 Agent 往往够用。
 4. 合规与审计要求？强 → Workflow 为主，Agent 能力收进边界内。
-
-  
- 
-
 
